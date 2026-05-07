@@ -1,379 +1,46 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #2e31ca;
-  --font-roboto: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
-  --font-roboto-serif: var(--font-roboto-serif), ui-serif, Georgia, serif;
+  --color-primary: #131C2B;
+  --color-beige: #FAF1E1;
+  --color-accent-blue: #D6E0EA;
+  --color-accent-peach: #FEE8C5;
+  --color-accent-green: #D0F3E0;
+  --color-accent-purple: #E8E1E6;
+  --color-gold: #A17755;
+  
+  --font-serif: "Libre Baskerville", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #000000;
+  --background: #FAF1E1;
+  --foreground: #131C2B;
 }
 
 @layer base {
   body {
     background-color: var(--background);
     color: var(--foreground);
-    @apply font-roboto;
+    @apply font-sans;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-roboto-serif font-bold text-black;
-  }
-
-  p {
-    @apply leading-relaxed text-black/80;
-  }
-
-  a {
-    @apply text-primary hover:underline;
+    @apply font-serif tracking-tight;
+    color: var(--foreground);
   }
 }
 
+/* Hide scrollbar for carousel */
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
 @layer utilities {
-
-  /* Hero */
-  .hero-title {
-    font-family: var(--font-roboto-serif);
-    font-weight: 400;
-    @apply text-[30px] leading-[46px] md:text-[52px] md:leading-[86px];
+  .btn-primary {
+    @apply px-6 py-3 bg-[var(--color-gold)] text-white rounded-lg font-medium flex items-center justify-center gap-2 hover:bg-[#8F6F4E] transition-colors w-fit;
   }
-
-  .hero-subtitle {
-    font-family: var(--font-roboto);
-    font-weight: 400;
-    @apply text-[14px] leading-[24px] md:text-[16px] md:leading-[25px];
+  .btn-outline {
+    @apply px-6 py-2.5 border border-black rounded-lg font-medium hover:bg-black hover:text-white transition-colors w-fit;
   }
-
-  .hero-small {
-    font-family: var(--font-roboto);
-    font-weight: 400;
-    @apply text-[14px] leading-[22px] md:text-[18px] md:leading-[25px];
-  }
-
-  /* Navbar */
-  .navbar-text {
-    font-family: var(--font-roboto);
-    font-weight: 400;
-    letter-spacing: 0%;
-    @apply text-[16px] leading-[100%];
-  }
-
-  .mobile-nav-link {
-    font-family: var(--font-roboto-serif);
-    font-weight: 400;
-    letter-spacing: 0%;
-    @apply text-[22px] leading-[30px];
-  }
-
-  /* Footer */
-  .footer-text {
-    font-family: var(--font-roboto);
-    font-weight: 400;
-    color: #333333;
-    @apply text-[14px] leading-[22px] md:text-[16px] md:leading-[24px];
-  }
-
-  .footer-link {
-    font-family: var(--font-roboto);
-    font-weight: 500;
-    color: #1a1a1a;
-    @apply text-[14px] leading-[22px];
-  }
-
-  .footer-desc {
-    font-family: var(--font-roboto);
-    font-weight: 400;
-    color: #1a1a1a;
-    @apply text-[13px] leading-[18px] md:text-[14.4px] md:leading-[20px];
-  }
-
-  .footer-address {
-    font-family: var(--font-roboto);
-    font-weight: 400;
-    color: #1a1a1a;
-    @apply text-[15px] leading-[24px] md:text-[20px] md:leading-[28px];
-  }
-
-  .footer-contact {
-    font-family: var(--font-roboto);
-    font-weight: 400;
-    color: #1a1a1a;
-    @apply text-[14px] leading-[22px] md:text-[18px] md:leading-[28px];
-  }
-
-  .footer-watermark {
-    font-family: var(--font-roboto-serif);
-    line-height: 1.3;
-    font-weight: 400;
-    color: #0c0d5020;
-    text-transform: uppercase;
-  }
-
-  /* Section title (shared) */
-  .section-title {
-    font-family: var(--font-roboto-serif);
-    font-weight: 400;
-    letter-spacing: 0.01em;
-    color: #050505;
-    @apply text-[28px] leading-[36px] md:text-[56px] md:leading-[68px];
-  }
-
-  /* Insight cards */
-  .insight-card-text {
-    font-family: var(--font-roboto);
-    font-weight: 400;
-    @apply text-[12px] leading-[16px] md:text-[14.4px] md:leading-[18px];
-  }
-
-  .insight-card-desc {
-    font-family: var(--font-roboto);
-    font-weight: 400;
-    @apply text-[14px] leading-[22px] md:text-[16px] md:leading-[25px];
-  }
-
-  .insight-card-title {
-    font-family: var(--font-roboto);
-    font-weight: 400;
-    @apply text-[18px] leading-[26px] md:text-[24px] md:leading-[34px];
-  }
-
-  /* FAQ */
-  .faq-question {
-    font-family: var(--font-roboto);
-    font-weight: 400;
-    letter-spacing: 0%;
-    @apply text-[17px] leading-[26px] md:text-[24px] md:leading-[34px];
-  }
-
-  .faq-answer {
-    font-family: var(--font-roboto);
-    font-weight: 400;
-    letter-spacing: 0%;
-    @apply text-[14px] leading-[22px] md:text-[16px] md:leading-[25px];
-  }
-
-  /* Profile */
-  .profile-subheading {
-    font-family: var(--font-roboto-serif);
-    font-weight: 400;
-    letter-spacing: 0%;
-    @apply text-[17px] leading-[26px] md:text-[24px] md:leading-[37px];
-  }
-
-  .profile-heading {
-    font-family: var(--font-roboto-serif);
-    font-weight: 400;
-    letter-spacing: 0.01em;
-    @apply text-[26px] leading-[40px] md:text-[56px] md:leading-[68px];
-  }
-
-  .profile-desc {
-    font-family: var(--font-roboto);
-    font-weight: 400;
-    letter-spacing: 0%;
-    @apply text-[14px] leading-[22px] md:text-[16px] md:leading-[25px];
-  }
-
-  .profile-stat-number {
-    font-family: var(--font-roboto-serif);
-    font-weight: 400;
-    letter-spacing: 0%;
-    text-transform: uppercase;
-    line-height: 100%;
-    @apply text-[36px] md:text-[93px];
-  }
-
-  .profile-stat-desc {
-    font-family: var(--font-roboto);
-    font-weight: 400;
-    letter-spacing: 0%;
-    @apply text-[11px] leading-[16px] md:text-[13px] md:leading-[18px];
-  }
-
-  /* Process */
-  .process-label {
-    font-family: var(--font-roboto-serif);
-    font-weight: 400;
-    letter-spacing: 0%;
-    @apply text-[15px] leading-[22px] md:text-[24px] md:leading-[37px];
-  }
-
-  .process-heading {
-    font-family: var(--font-roboto-serif);
-    font-weight: 400;
-    letter-spacing: 0.01em;
-    @apply text-[26px] leading-[34px] md:text-[56px] md:leading-[68px];
-  }
-
-  .process-desc {
-    font-family: var(--font-roboto);
-    font-weight: 400;
-    letter-spacing: 0%;
-    @apply text-[14px] leading-[22px] md:text-[16px] md:leading-[25px];
-  }
-
-  .process-btn {
-    font-family: var(--font-roboto);
-    font-weight: 500;
-    letter-spacing: 0%;
-    @apply text-[13px] leading-[20px] md:text-[15px] md:leading-[24px];
-  }
-
-  .process-why-heading {
-    font-family: var(--font-roboto-serif);
-    font-weight: 400;
-    letter-spacing: 0.01em;
-    @apply text-[20px] leading-[28px] md:text-[32px] md:leading-[42px];
-  }
-
-  .process-item-title {
-    font-family: var(--font-roboto-serif);
-    font-weight: 400;
-    letter-spacing: 0%;
-    @apply text-[17px] leading-[24px] md:text-[24px] md:leading-[34px];
-  }
-
-  .process-item-desc {
-    font-family: var(--font-roboto);
-    font-weight: 400;
-    letter-spacing: 0%;
-    @apply text-[13px] leading-[20px] md:text-[16px] md:leading-[25px];
-  }
-
-  /* Services */
-  .services-heading {
-    font-family: var(--font-roboto-serif);
-    font-weight: 400;
-    letter-spacing: 0.01em;
-    @apply text-[26px] leading-[34px] md:text-[56px] md:leading-[68px];
-  }
-
-  .services-number {
-    font-family: var(--font-roboto-serif);
-    font-weight: 300;
-    letter-spacing: 0.01em;
-    @apply text-[20px] leading-[28px] md:text-[40px] md:leading-[56px];
-  }
-
-  .services-title {
-    font-family: var(--font-roboto);
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    @apply text-[17px] leading-[24px] md:text-[32px] md:leading-[48px];
-  }
-
-  .services-desc {
-    font-family: var(--font-roboto);
-    font-weight: 400;
-    letter-spacing: 0%;
-    @apply text-[13px] leading-[20px] md:text-[16px] md:leading-[25px];
-  }
-
-  /* Legacy */
-  .legacy-label {
-    font-family: var(--font-roboto-serif);
-    font-weight: 400;
-    letter-spacing: 0%;
-    @apply text-[15px] leading-[22px] md:text-[24px] md:leading-[36px];
-  }
-
-  .legacy-heading {
-    font-family: var(--font-roboto-serif);
-    font-weight: 400;
-    @apply text-[26px] leading-[34px] md:text-[42px] md:leading-[51px];
-  }
-
-  .legacy-desc {
-    font-family: var(--font-roboto);
-    font-weight: 400;
-    letter-spacing: 0%;
-    @apply text-[14px] leading-[22px] md:text-[16px] md:leading-[25px];
-  }
-
-  .legacy-btn {
-    font-family: var(--font-roboto);
-    font-weight: 500;
-    letter-spacing: 0%;
-    @apply text-[13px] leading-[20px] md:text-[15px] md:leading-[24px];
-  }
-
-  /* ── Insights Grid ─────────────────────────────────────────────── */
-
-  /* Date stamp above card title */
-  .insight-grid-date {
-    font-family: var(--font-roboto);
-    font-weight: 400;
-    @apply text-[12px] leading-[18px] md:text-[13px] md:leading-[20px];
-  }
-
-  /* Card heading */
-  .insight-grid-title {
-    font-family: var(--font-roboto-serif);
-    font-weight: 400;
-    @apply text-[17px] leading-[25px] md:text-[20px] md:leading-[30px];
-  }
-
-  /* Card excerpt / summary */
-  .insight-grid-excerpt {
-    font-family: var(--font-roboto);
-    font-weight: 400;
-    @apply text-[13px] leading-[20px] md:text-[14px] md:leading-[22px];
-  }
-
-  /* "Read More ↗" link inside cards */
-  .insight-grid-readmore {
-    font-family: var(--font-roboto);
-    font-weight: 500;
-    @apply text-[13px] leading-[20px] md:text-[14px] md:leading-[22px];
-  }
-
-  /* Sidebar "Recent Posts" heading */
-  .insight-sidebar-heading {
-    font-family: var(--font-roboto-serif);
-    font-weight: 400;
-    @apply text-[18px] leading-[26px] md:text-[22px] md:leading-[32px];
-  }
-
-  /* Sidebar compact card title */
-  .insight-sidebar-title {
-    font-family: var(--font-roboto-serif);
-    font-weight: 500;
-    @apply text-[13px] leading-[19px] md:text-[15px] md:leading-[22px];
-  }
-
-  /* Sidebar compact card excerpt */
-  .insight-sidebar-excerpt {
-    font-family: var(--font-roboto);
-    font-weight: 500;
-    @apply text-[11px] leading-[17px] md:text-[12px] md:leading-[18px];
-  }
-
-  /* Pagination arrow buttons */
-  .insight-pagination-btn {
-    font-family: var(--font-roboto);
-    font-weight: 400;
-    @apply flex items-center justify-center w-9 h-9 border border-[#D0D0D0] bg-white text-[#333] text-[16px] hover:border-[#2E31CA] hover:text-[#2E31CA] transition-colors;
-  }
-
-  /* Pagination numbered buttons */
-  .insight-pagination-num {
-    font-family: var(--font-roboto);
-    font-weight: 500;
-    @apply flex items-center justify-center w-9 h-9 border text-[13px] transition-colors;
-  }
-
-    .contact-headquater {
-    font-family: var(--font-roboto-serif);
-    font-weight: 400;
-    @apply text-[14px] leading-[22px] md:text-[20px] md:leading-[28px];
-  }
-  .contact-desc {
-    font-family: var(--font-roboto);
-    font-weight: 500;
-    letter-spacing: 0%;
-    @apply text-[14px] leading-[22px] md:text-[16px] md:leading-[25px];
-  }
-
 }
