@@ -55,11 +55,11 @@ export default function Footer() {
               {/* Pages */}
               <div className="flex flex-col gap-4">
                 <h5 className="text-[#A17755] font-sans text-[13px] sm:text-[15px] mb-1 font-medium uppercase tracking-wide">Pages</h5>
-                <Link href="#" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Home</Link>
-                <Link href="#" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Services</Link>
-                <Link href="#" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Industries</Link>
-                <Link href="#" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">About</Link>
-                <Link href="#" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Contact</Link>
+                <Link href="/" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Home</Link>
+                <Link href="/#services" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Services</Link>
+                <Link href="/#industries" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Industries</Link>
+                <Link href="/#about" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">About</Link>
+                <Link href="/contact" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Contact</Link>
               </div>
 
               {/* Inners */}

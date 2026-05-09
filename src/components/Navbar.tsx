@@ -11,7 +11,7 @@ const navLinks = [
   { href: '#services', label: 'Services' },
   { href: '#industries', label: 'Industries' },
   { href: '#insights', label: 'Insights' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 export default function Navbar() {
@@ -106,7 +106,7 @@ export default function Navbar() {
 
             <div className="mt-auto px-8 pb-8">
               <Link
-                href="#contact"
+                href="/contact"
                 onClick={() => setMenuOpen(false)}
                 className="block w-full text-center bg-[#A17755] hover:bg-[#8F6F4E] text-white rounded-md py-3 text-[15px] font-medium transition-colors"
               >
