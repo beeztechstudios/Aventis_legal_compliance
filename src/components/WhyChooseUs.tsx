@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from 'next/image';
 import { useRef } from 'react';
@@ -37,7 +37,7 @@ function AccordionItem({ feature, idx }: { feature: typeof features[0], idx: num
   const textRef = useRef<HTMLDivElement>(null);
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
-  
+
   const { contextSafe } = useGSAP({ scope: containerRef });
 
   const onEnter = contextSafe(() => {
@@ -47,7 +47,7 @@ function AccordionItem({ feature, idx }: { feature: typeof features[0], idx: num
       duration: 0.5,
       ease: "power3.out"
     });
-    
+
     gsap.to(imageContainerRef.current, {
       height: imageRef.current?.offsetHeight || 200,
       duration: 0.5,
@@ -62,7 +62,7 @@ function AccordionItem({ feature, idx }: { feature: typeof features[0], idx: num
       duration: 0.4,
       ease: "power3.out"
     });
-    
+
     gsap.to(imageContainerRef.current, {
       height: '90px', // Top part of the image
       duration: 0.4,
@@ -71,7 +71,7 @@ function AccordionItem({ feature, idx }: { feature: typeof features[0], idx: num
   });
 
   return (
-    <div 
+    <div
       ref={containerRef}
       className={`w-full flex flex-col md:flex-row items-stretch justify-between p-6 md:p-8 cursor-pointer ${feature.bgColor}`}
       onMouseEnter={onEnter}
@@ -79,7 +79,7 @@ function AccordionItem({ feature, idx }: { feature: typeof features[0], idx: num
     >
       <div className="flex-1 flex flex-col justify-between pr-8 w-full md:w-[70%] mb-6 md:mb-0">
         <h3 className="font-serif text-2xl md:text-[28px] font-medium text-[#131C2B] flex items-start gap-4">
-          <span>0{idx + 1}</span> 
+          <span>0{idx + 1}</span>
           {feature.title}
         </h3>
         <div ref={textRef} className="h-0 opacity-0 overflow-hidden w-full max-w-xl">
@@ -88,17 +88,17 @@ function AccordionItem({ feature, idx }: { feature: typeof features[0], idx: num
           </p>
         </div>
       </div>
-      
+
       <div className="w-full md:w-[30%] flex justify-end items-start shrink-0">
-        <div 
-          ref={imageContainerRef} 
+        <div
+          ref={imageContainerRef}
           className="relative w-full h-[150px] md:h-[90px] overflow-hidden ml-auto shadow-sm"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img 
+          <img
             ref={imageRef}
-            src={feature.image} 
-            alt={feature.title} 
+            src={feature.image}
+            alt={feature.title}
             className="w-full h-auto object-cover object-top block"
           />
         </div>

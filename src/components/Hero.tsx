@@ -73,7 +73,7 @@ export default function Hero() {
 
           {/* Left Side: Big Heading */}
           <div className="flex-1 lg:max-w-[65%]">
-            <h1 className="font-serif font-normal text-[1.7rem] sm:text-[2rem] md:text-[2.3rem] lg:text-[2.2rem] xl:text-[3.4rem] 2xl:text-[4.5rem] leading-[1.12] tracking-tight text-[#131C2B]">
+            <h1 className="font-serif font-normal text-[1.6rem] sm:text-[2rem] md:text-[2.3rem] lg:text-[2.2rem] xl:text-[3.4rem] 2xl:text-[4.5rem] leading-[1.12] tracking-tight text-[#131C2B]">
               <span className="block lg:whitespace-nowrap">Simplifying Compliance.</span>
               <span className="block lg:whitespace-nowrap">Strengthening Governance.</span>
             </h1>

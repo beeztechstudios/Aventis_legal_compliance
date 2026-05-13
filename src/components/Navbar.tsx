@@ -8,9 +8,9 @@ import { Menu, X, BookOpen } from 'lucide-react';
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '#about', label: 'About' },
-  { href: '#services', label: 'Services' },
+  { href: '/practice-areas', label: 'Practice Areas' },
   { href: '#industries', label: 'Industries' },
-  { href: '#insights', label: 'Insights' },
+  { href: '/insights', label: 'Insights' },
   { href: '/contact', label: 'Contact' },
 ];
 

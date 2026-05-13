@@ -3,7 +3,7 @@ import Image from 'next/image';
 const professionals = [
   {
     name: 'Isha Wadhwa',
-    title: 'Managing Partner',
+    title: 'Founder and Principal Consultant',
     description:
       'A legal professional specializing in labour law compliance, regulatory advisory, payroll compliances, HR audits, and POSH governance. She provides practical, business-focused solutions that help organizations manage compliance efficiently while ensuring transparency and risk mitigation.',
     image: '/Isha-Wadhwa.png',
@@ -11,7 +11,7 @@ const professionals = [
   },
   {
     name: 'Manan Oberoi',
-    title: 'Managing Partner',
+    title: 'Founder and Principal Consultant',
     description:
       'He advises clients on labour law matters, payroll compliances, HR audits, statutory obligations, and regulatory processes across industries. His approach focuses on delivering structured and practical solutions, ensuring compliance accuracy, efficiency, and smooth operations.',
     image: '/Manan-Oberoi.png',
@@ -21,11 +21,11 @@ const professionals = [
 
 export default function OurProfessionals() {
   return (
-    <section id="professionals" className="bg-[#FAF1E1] py-20 md:py-28 w-full overflow-hidden">
+    <section id="professionals" className="bg-[#FAF1E1] py-20 md:py-16 w-full overflow-hidden">
       <div className="max-w-[1300px] mx-auto px-4 md:px-8">
 
         {/* Section Header */}
-        <div className="text-center mb-14 md:mb-20">
+        <div className="text-center mb-14 md:mb-10">
           <h2 className="font-serif text-[2.5rem] md:text-[3.5rem] text-[#131C2B] mb-4">
             Our Professionals
           </h2>
