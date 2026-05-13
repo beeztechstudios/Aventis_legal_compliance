@@ -110,13 +110,13 @@ export default function PracticeAreasPage() {
 
       {/* Hero Section */}
       <section className="relative w-full px-6 md:px-12 flex flex-col lg:flex-row lg:items-center justify-between gap-10 lg:gap-8 z-10 overflow-hidden">
-        <div className="w-full lg:w-[48%] py-16 md:py-24 flex flex-col z-10 relative">
-          <h1 className="font-serif font-normal text-[1.6rem] sm:text-[2rem] md:text-[2.3rem] lg:text-[2.2rem] xl:text-[3.4rem] 2xl:text-[4.5rem] leading-[1.12] tracking-tight text-[#131C2B] mb-6">
+        <div className="w-full lg:w-[48%] pt-16 md:pt-24 pb-0 flex flex-col z-10 relative">
+          <h1 className="heading-hero !text-[30px] md:!text-[48px] lg:!text-[64px] mb-2">
             <span className="block whitespace-nowrap">Labour Law &</span>
             <span className="block whitespace-nowrap">Compliance Solutions</span>
             <span className="block whitespace-nowrap">for Modern Businesses</span>
           </h1>
-          <p className="font-sans text-[15px] md:text-[17px] text-[#131C2B]/80 mb-10 max-w-[650px] leading-relaxed text-justify">
+          <p className="section-description heading-to-desc mb-4 max-w-[650px] text-justify">
             Reliable labour law and regulatory compliance support designed to help businesses manage workforce obligations, reduce risks, and ensure operational efficiency.
           </p>
           <div>
@@ -140,13 +140,13 @@ export default function PracticeAreasPage() {
       </section>
 
       {/* Grid Section */}
-      <section className="w-full px-6 md:px-12 py-20 md:py-32 z-10 relative">
+      <section className="w-full px-6 md:px-12 py-12 md:py-32 z-10 relative">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
-          <h2 className="font-serif text-[2.2rem] md:text-[3rem] lg:text-[3.5rem] text-[#131C2B] leading-none">
+          <h2 className="heading-section">
             Our Practice Areas
           </h2>
-          <p className="font-sans text-[13px] md:text-[15px] text-[#111111] max-w-[400px] leading-relaxed pb-0 translate-y-2">
+          <p className="section-description max-w-[400px] translate-y-2">
             Comprehensive labour law, compliance, and regulatory advisory solutions tailored to support modern businesses across India.
           </p>
         </div>
@@ -177,7 +177,7 @@ export default function PracticeAreasPage() {
 
                 {/* Text block — shifts upward on hover/click */}
                 <div className={`relative z-10 mt-auto flex flex-col transition-transform duration-500 ease-in-out group-hover:-translate-y-28 ${isActive ? '-translate-y-28' : 'translate-y-0'}`}>
-                  <h3 className={`font-serif text-[20px] md:text-[22px] font-medium mb-3 leading-[1.3] whitespace-pre-line transition-colors duration-500 group-hover:text-[#FDEACB] ${isActive ? 'text-[#FDEACB]' : 'text-[#121C2A]'}`}>
+                  <h3 className={`heading-sub mb-3 leading-[1.3] whitespace-pre-line transition-colors duration-500 group-hover:text-[#FDEACB] ${isActive ? 'text-[#FDEACB]' : 'text-[#121C2A]'}`}>
                     {area.title}
                   </h3>
                   <p className={`text-[13px] md:text-[14px] leading-relaxed font-sans line-clamp-3 transition-colors duration-500 group-hover:text-[#FDEACB]/80 ${isActive ? 'text-[#FDEACB]/80' : 'text-[#121C2A]/70'}`}>

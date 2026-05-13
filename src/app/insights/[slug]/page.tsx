@@ -55,7 +55,7 @@ export default async function BlogDetailsPage({
       <main className="flex flex-col min-h-screen bg-[#FAF1E1]">
         <Navbar />
         <div className="flex-1 flex flex-col items-center justify-center p-6 text-center">
-          <h1 className="text-[2.5rem] font-serif text-[#131C2B] mb-4">Post Not Found</h1>
+          <h1 className="heading-hero mb-2 md:mb-4">Post Not Found</h1>
           <p className="text-[#131C2B]/80 font-sans mb-8 max-w-md">
             The insight you are looking for does not exist or has been removed.
           </p>
@@ -95,14 +95,14 @@ export default async function BlogDetailsPage({
               <div className="font-sans text-[14px] md:text-[15px] text-[#A17755] font-medium mb-6">
                 {post.categoryName || 'Featured Article'} <span className="text-[#131C2B]/30 mx-2">|</span> {formatDate(post.publishedAt)} <span className="text-[#131C2B]/30 mx-2">|</span> {post.readTime || '5 min read'}
               </div>
-              <h1 className="font-serif font-normal text-[1.6rem] sm:text-[2rem] md:text-[2.3rem] lg:text-[2.2rem] xl:text-[3.4rem] 2xl:text-[4.5rem] leading-[1.12] tracking-tight text-[#131C2B]">
+              <h1 className="heading-hero">
                 {post.title}
               </h1>
             </div>
 
             {/* Right: Excerpt & Author */}
             <div className="lg:w-[35%] lg:max-w-[420px] flex flex-col lg:pt-[4.5rem]">
-              <p className="font-sans text-[15px] md:text-[17px] text-[#131C2B]/80 leading-relaxed mb-8 max-w-[500px]">
+              <p className="section-description heading-to-desc mb-2 md:mb-8 max-w-[500px]">
                 {post.excerpt || 'Key updates and recent developments in labour laws impacting workforce compliance, payroll obligations, and regulatory requirements for businesses across India.'}
               </p>
               
@@ -111,7 +111,7 @@ export default async function BlogDetailsPage({
                   <Image src={authorImg} alt={authorName} fill className="object-cover" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-serif text-[18px] md:text-[20px] text-[#131C2B] leading-tight mb-1">
+                  <span className="heading-card text-[#131C2B] leading-tight mb-1">
                     {authorName}
                   </span>
                   <span className="font-sans text-[13px] md:text-[14px] text-[#131C2B]/60">
@@ -186,7 +186,7 @@ export default async function BlogDetailsPage({
 
               {/* Stay Updated Card */}
               <div className="w-full bg-white rounded-sm shadow-sm p-6 md:p-8 flex flex-col">
-                <h4 className="font-serif text-[1.6rem] md:text-[1.8rem] text-[#131C2B] mb-3 leading-tight">
+                <h4 className="heading-card mb-2 md:mb-3 leading-tight">
                   Stay Updated Card
                 </h4>
                 <p className="font-sans text-[14px] text-[#131C2B]/80 leading-relaxed mb-6">

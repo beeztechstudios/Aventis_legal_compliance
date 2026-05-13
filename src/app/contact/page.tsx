@@ -2,8 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { PopupModal } from 'react-calendly';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import Navbar from "@/components/Navbar";
@@ -19,6 +18,8 @@ export default function ContactPage() {
     phone: '',
     message: ''
   });
+  const [showCalendly, setShowCalendly] = useState(false);
+  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || '';
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -35,6 +36,15 @@ export default function ContactPage() {
       "_blank",
       "noopener,noreferrer"
     );
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!calendlyUrl) {
+      console.warn('Missing NEXT_PUBLIC_CALENDLY_URL');
+      return;
+    }
+    setShowCalendly(true);
   };
 
   useGSAP(() => {
@@ -69,15 +79,19 @@ export default function ContactPage() {
         </div>
 
         {/* Left Side: Content */}
-        <div className="w-full lg:w-[48%] hero-content py-16 md:py-24 relative z-10">
-          <h1 className="font-serif font-normal text-[1.6rem] sm:text-[2rem] md:text-[2.3rem] lg:text-[2.2rem] xl:text-[3.4rem] 2xl:text-[4.5rem] leading-[1.12] tracking-tight text-[#131C2B] mb-8">
+        <div className="w-full lg:w-[48%] hero-content pt-16 md:pt-24 pb-0 relative z-10">
+          <h1 className="heading-hero !text-[30px] md:!text-[48px] lg:!text-[64px] mb-2">
             <span className="block lg:whitespace-nowrap">Contact Aventis</span>
             <span className="block lg:whitespace-nowrap">Compliance Solutions</span>
           </h1>
-          <p className="text-[#131C2B] text-[15px] md:text-[17px] leading-relaxed mb-10 max-w-[540px]">
+          <p className="section-description heading-to-desc mb-4 max-w-[540px]">
             Connect with our team for reliable labour law compliance and regulatory support tailored to your business requirements.
           </p>
-          <button className="bg-[#A17755] text-white px-8 py-3.5 rounded-md font-sans font-medium text-[15px] hover:bg-[#8F6F4E] transition-colors shadow-sm">
+          <button
+            type="button"
+            onClick={() => setShowCalendly(true)}
+            className="bg-[#A17755] text-white px-8 py-3.5 rounded-md font-sans font-medium text-[15px] hover:bg-[#8F6F4E] transition-colors shadow-sm"
+          >
             Book Consultation
           </button>
           <p className="text-[#131C2B]/60 text-xs mt-6 font-sans">
@@ -102,8 +116,8 @@ export default function ContactPage() {
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
           {/* Left Column: Info & Map */}
           <div className="flex-1 lg:max-w-[45%] flex flex-col">
-            <h2 className="font-serif text-[2rem] md:text-[2.8rem] text-[#131C2B] mb-6">Connect With Aventis</h2>
-            <p className="text-[#131C2B]/70 text-[15px] md:text-[16px] leading-relaxed mb-10">
+            <h2 className="heading-section heading-to-desc">Connect With Aventis</h2>
+            <p className="section-description mb-10">
               We help businesses navigate labour law and regulatory requirements with structured, responsive, and practical compliance support across India.
             </p>
 
@@ -159,10 +173,12 @@ export default function ContactPage() {
 
           {/* Right Column: Form */}
           <div className="flex-1 lg:max-w-[50%] bg-[#FCFCFC] border border-white/60 rounded-2xl p-8 md:p-12 shadow-sm">
-            <h2 className="font-serif text-[1.8rem] md:text-[2.2rem] text-[#131C2B] mb-2">let&apos;s discuss your requirements</h2>
+            <h3 className="heading-section heading-to-desc text-[20px] md:text-[32px] lg:text-[40px] whitespace-nowrap overflow-hidden">
+              let&apos;s discuss your requirements
+            </h3>
             <div className="w-full h-px bg-[#131C2B]/10 mb-10"></div>
 
-            <form className="flex flex-col gap-8">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-8">
               <div className="flex flex-col gap-3">
                 <label className="text-[14px] font-medium text-[#131C2B] font-sans">Enter Name</label>
                 <input
@@ -237,6 +253,23 @@ export default function ContactPage() {
       <FAQ />
       <CallToAction />
       <Footer />
+
+      {showCalendly && calendlyUrl ? (
+        <PopupModal
+          url={calendlyUrl}
+          prefill={{
+            name: formData.name,
+            email: formData.email,
+            customAnswers: {
+              a1: formData.phone,
+              ...(formData.message.trim() ? { a2: formData.message } : {}),
+            },
+          }}
+          onModalClose={() => setShowCalendly(false)}
+          open={showCalendly}
+          rootElement={document.body}
+        />
+      ) : null}
     </main>
   );
 }

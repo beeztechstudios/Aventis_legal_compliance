@@ -78,9 +78,9 @@ function AccordionItem({ feature, idx }: { feature: typeof features[0], idx: num
       onMouseLeave={onLeave}
     >
       <div className="flex-1 flex flex-col justify-between pr-8 w-full md:w-[70%] mb-6 md:mb-0">
-        <h3 className="font-serif text-2xl md:text-[28px] font-medium text-[#131C2B] flex items-start gap-4">
-          <span>0{idx + 1}</span>
-          {feature.title}
+        <h3 className="heading-sub flex items-center gap-4 min-w-0 overflow-hidden whitespace-nowrap">
+          <span className="shrink-0">0{idx + 1}</span>
+          <span className="overflow-hidden text-ellipsis">{feature.title}</span>
         </h3>
         <div ref={textRef} className="h-0 opacity-0 overflow-hidden w-full max-w-xl">
           <p className="text-[#131C2B]/70 text-[13px] md:text-[15px] leading-relaxed font-sans pt-6">
@@ -109,16 +109,16 @@ function AccordionItem({ feature, idx }: { feature: typeof features[0], idx: num
 
 export default function WhyChooseUs() {
   return (
-    <section className="px-6 md:px-12 py-20 w-full flex flex-col gap-12">
+    <section className="px-6 md:px-12 py-12 md:py-20 w-full flex flex-col gap-6 md:gap-12">
       {/* Header Row */}
       <div className="w-full flex flex-col md:flex-row justify-between items-start md:items-center">
         <div>
-          <h2 className="font-serif text-4xl md:text-5xl text-[#131C2B] mb-4">Why Choose Aventis</h2>
-          <p className="text-[#131C2B]/70 text-[15px] font-sans">
+          <h2 className="heading-section heading-to-desc">Why Choose Aventis</h2>
+          <p className="section-description">
             Practical, reliable, and business-focused compliance support.
           </p>
         </div>
-        <button className="mt-6 md:mt-0 btn-primary shadow-sm text-[14px] px-6 py-2.5 bg-[#A17755] hover:bg-[#8F6F4E] rounded-md">
+        <button className="btn-primary desc-to-btn md:mt-0 shadow-sm text-[14px] px-6 py-2.5">
           Book Consultation
         </button>
       </div>

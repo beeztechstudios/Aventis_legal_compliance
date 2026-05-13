@@ -89,14 +89,14 @@ export default async function PracticeAreaDetailsPage({
 
             {/* Left: Title */}
             <div className="flex-1 lg:max-w-[55%]">
-              <h1 className="font-serif font-normal text-[1.6rem] sm:text-[2rem] md:text-[2.3rem] lg:text-[2.2rem] xl:text-[3.4rem] 2xl:text-[4.5rem] leading-[1.12] tracking-tight text-[#131C2B]">
+              <h1 className="heading-hero">
                 {post.title}
               </h1>
             </div>
 
             {/* Right: Excerpt & CTA Button */}
             <div className="lg:w-[45%] lg:max-w-[480px] flex flex-col items-start bg-transparent">
-              <p className="font-sans text-[15px] md:text-[16px] text-[#131C2B]/80 leading-relaxed mb-6">
+              <p className="section-description heading-to-desc mb-2 md:mb-6">
                 {post.excerpt || 'Our core compliance, labour law & HR policy frameworks are designed to build a compliant & accountable workforce that mitigates risks and improves operational efficiency.'}
               </p>
 
@@ -131,7 +131,7 @@ export default async function PracticeAreaDetailsPage({
               <SanityContentRenderer content={post.content} />
             ) : (
               <div className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:font-normal prose-headings:text-[#131C2B] prose-p:font-sans prose-p:text-[#131C2B]/80 prose-p:leading-relaxed prose-li:font-sans prose-li:text-[#131C2B]/80 prose-a:text-[#A17755]">
-                <h2 className="text-[2rem] text-[#131C2B] mb-6 font-serif font-normal">Services Provided</h2>
+                <h2 className="heading-section mb-2 md:mb-6">Services Provided</h2>
                 <p className="font-sans text-[16px] text-[#131C2B]/80 leading-relaxed mb-6">
                   We offer a wide range of services to help you navigate the complexities of labour laws and compliance. Our team of experts provides tailored solutions to meet your specific business needs, ensuring full regulatory alignment and risk mitigation.
                 </p>
@@ -144,7 +144,7 @@ export default async function PracticeAreaDetailsPage({
                   <li>Integration with HR management systems</li>
                 </ul>
 
-                <h2 className="text-[2rem] text-[#131C2B] mb-6 font-serif font-normal">Core Compliance Areas</h2>
+                <h2 className="heading-section mb-2 md:mb-6">Core Compliance Areas</h2>
                 <p className="font-sans text-[16px] text-[#131C2B]/80 leading-relaxed mb-6">
                   Our core compliance focus areas cover the most critical aspects of employment and labour regulations in India. From POSH compliance to payroll taxes, we ensure that your business operates smoothly without the burden of non-compliance penalties.
                 </p>
@@ -158,7 +158,7 @@ export default async function PracticeAreaDetailsPage({
                   <li>Compliance across multiple locations</li>
                 </ul>
 
-                <h2 className="text-[2rem] text-[#131C2B] mb-6 font-serif font-normal">Long-Term Business Impact</h2>
+                <h2 className="heading-section mb-2 md:mb-6">Long-Term Business Impact</h2>
                 <p className="font-sans text-[16px] text-[#131C2B]/80 leading-relaxed mb-6">
                   Implementing a robust compliance framework isn't just about avoiding penalties; it's about building a sustainable and ethical business. Proper governance enhances employee morale, attracts top talent, and builds trust with stakeholders and investors.
                 </p>
@@ -166,7 +166,7 @@ export default async function PracticeAreaDetailsPage({
                   Our proactive approach ensures that you are always prepared for regulatory changes, audits, and inspections, allowing you to focus on your core business operations with peace of mind.
                 </p>
 
-                <h2 className="text-[2rem] text-[#131C2B] mb-6 font-serif font-normal">Frequently Asked Questions</h2>
+                <h2 className="heading-section mb-2 md:mb-6">Frequently Asked Questions</h2>
                 <p className="font-sans text-[16px] text-[#131C2B]/80 leading-relaxed mb-6">
                   Navigate compliance queries easily with our experts. Find clarity on complex labour regulations and maintain regulatory alignment.
                 </p>
@@ -205,7 +205,7 @@ export default async function PracticeAreaDetailsPage({
 
               {/* Stay Updated Card */}
               <div className="w-full bg-white rounded-sm shadow-sm p-6 md:p-8 flex flex-col">
-                <h4 className="font-serif text-[1.6rem] md:text-[1.8rem] text-[#131C2B] mb-3 leading-tight">
+                <h4 className="heading-card mb-2 md:mb-3 leading-tight">
                   Stay Updated Card
                 </h4>
                 <p className="font-sans text-[14px] text-[#131C2B]/80 leading-relaxed mb-6">

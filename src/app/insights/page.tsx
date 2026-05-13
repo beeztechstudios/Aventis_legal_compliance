@@ -128,12 +128,12 @@ export default async function InsightsPage() {
       <Navbar />
 
       {/* Header Section */}
-      <section className="px-6 md:px-12 py-12 md:py-16 w-full flex flex-col lg:flex-row justify-between items-start lg:items-center gap-12 lg:gap-24">
-        <h1 className="font-serif text-[1.6rem] sm:text-[2rem] md:text-[2.3rem] lg:text-[2.2rem] xl:text-[3.4rem] 2xl:text-[4.5rem] text-[#131C2B] leading-tight flex-1 lg:max-w-[65%]">
+      <section className="px-6 md:px-12 pt-12 md:pt-16 pb-0 w-full flex flex-col lg:flex-row justify-between items-start lg:items-center gap-2 md:gap-12 lg:gap-24">
+        <h1 className="heading-hero !text-[30px] md:!text-[48px] lg:!text-[64px] flex-1 lg:max-w-[65%]">
           Resources & Insights
         </h1>
         <div className="flex flex-col items-start gap-4 flex-1 lg:max-w-[35%] pt-4 lg:pt-0">
-          <p className="text-[#131C2B]/80 font-sans text-[14px] md:text-[15px] leading-relaxed text-left mb-4">
+          <p className="section-description mb-2 text-left">
             Labour law updates, compliance guidance, and practical business insights designed to help organizations stay informed and compliant.
           </p>
           <button className="bg-[#A17755] text-white px-8 py-3.5 rounded-md font-sans font-medium text-[15px] hover:bg-[#8F6F4E] transition-colors shadow-sm">
@@ -161,7 +161,7 @@ export default async function InsightsPage() {
       <div className="border border-[#A1A4AA] text-[#FAF1E1] text-[12px] rounded-md px-3 py-1 mb-6 font-sans">
         Featured Article
       </div>
-      <h2 className="font-serif text-2xl sm:text-3xl text-white mb-4 leading-tight">
+      <h2 className="heading-section text-white mb-4 leading-tight">
         Latest Labour Law Changes in India
       </h2>
       <p className="text-white/80 font-sans text-sm sm:text-base leading-relaxed mb-8 text-left">
@@ -259,7 +259,7 @@ export default async function InsightsPage() {
                   {post.categoryName || 'Compliance'}
                 </div>
 
-                <h3 className="font-serif text-[1.25rem] md:text-[1.4rem] text-[#131C2B] leading-[1.3] mb-3 group-hover:text-[#A17755] transition-colors">
+                <h3 className="heading-card text-[#131C2B] leading-[1.3] mb-3 group-hover:text-[#A17755] transition-colors">
                   {post.title}
                 </h3>
 
