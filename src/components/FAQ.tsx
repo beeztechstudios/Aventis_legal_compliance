@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from 'react';
 import { Plus, X } from 'lucide-react';
@@ -34,10 +34,10 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="bg-[#FAF1E1] py-24 md:py-32 w-full">
+    <section id="faq" className="bg-[#FAF1E1] py-12 md:py-32 w-full">
       <div className="w-full px-6 md:px-12 mx-auto">
         
-        <h2 className="font-serif text-[2.5rem] md:text-[3.5rem] text-[#131C2B] mb-12 md:mb-16">FAQ</h2>
+        <h2 className="heading-section mb-6 md:mb-16">FAQ</h2>
         
         <div className="flex flex-col w-full border-t border-[#131C2B]/10">
           {faqs.map((faq, idx) => (
@@ -46,7 +46,7 @@ export default function FAQ() {
                 onClick={() => toggleFAQ(idx)}
                 className="w-full flex items-center justify-between py-6 md:py-8 text-left group"
               >
-                <h3 className="font-serif text-[18px] md:text-[22px] text-[#131C2B] pr-8 leading-snug">
+                <h3 className="heading-sub pr-8">
                   {faq.question}
                 </h3>
                 <div className="flex-shrink-0 text-[#131C2B]">
@@ -56,7 +56,7 @@ export default function FAQ() {
               <div 
                 className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${openIndex === idx ? 'max-h-40 opacity-100 pb-6 md:pb-8' : 'max-h-0 opacity-0'}`}
               >
-                <p className="font-sans text-[13px] md:text-[15px] text-[#131C2B]/80 leading-relaxed max-w-5xl">
+                <p className="font-sans text-[13px] md:text-[18px] text-[#131C2B]/80 leading-relaxed max-w-5xl pt-0 md:pt-0">
                   {faq.answer}
                 </p>
               </div>

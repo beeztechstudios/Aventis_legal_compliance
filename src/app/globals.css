@@ -8,7 +8,7 @@
   --color-accent-green: #D0F3E0;
   --color-accent-purple: #E8E1E6;
   --color-gold: #A17755;
-  
+
   --font-serif: "Libre Baskerville", ui-serif, Georgia, serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
@@ -25,21 +25,129 @@
     @apply font-sans;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-serif tracking-tight;
     color: var(--foreground);
   }
 }
 
-/* Hide scrollbar for carousel */
-.scrollbar-hidden::-webkit-scrollbar {
+/* ─────────────────────────────────────────────
+   TYPOGRAPHY SCALE  (mobile-first)
+───────────────────────────────────────────── */
+@layer components {
+
+  /* ── Headings ── */
+
+  /* Hero h1 — homepage only */
+  .heading-hero {
+    @apply font-serif font-normal leading-[1.12] tracking-tight text-[#131C2B];
+    font-size: 28px;
+    max-width: 100%;
+    word-break: keep-all;
+  }
+
+  @media (min-width: 768px) {
+    .heading-hero {
+      font-size: 48px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .heading-hero {
+      font-size: 64px;
+    }
+  }
+
+  /* Section h2 — every section title */
+  .heading-section {
+    @apply font-serif font-normal leading-tight tracking-tight text-[#131C2B];
+    font-size: 24px;
+  }
+
+  @media (min-width: 768px) {
+    .heading-section {
+      font-size: 3.5rem;
+    }
+  }
+
+  /* Card / accordion h3 */
+  .heading-sub {
+    @apply font-serif font-medium leading-snug tracking-tight text-[#131C2B];
+    font-size: 20px;
+  }
+
+  @media (min-width: 768px) {
+    .heading-sub {
+      font-size: 28px;
+    }
+  }
+
+  /* Tertiary h4 */
+  .heading-card {
+    @apply font-serif font-medium leading-snug tracking-tight text-[#131C2B];
+    font-size: 18px;
+  }
+
+  @media (min-width: 768px) {
+    .heading-card {
+      font-size: 20px;
+    }
+  }
+
+  /* ── Section layout ── */
+
+  /* Consistent vertical padding for every section */
+  .section-spacing {
+    @apply py-12 md:py-32;
+  }
+
+  /* Wrapper around [heading + description + button].
+     Bottom margin = gap between header block and section content. */
+  .section-header {
+    @apply mb-6 md:mb-16;
+  }
+
+  /* ── Gap utilities ── */
+
+  /* heading → description : 8 px */
+  .heading-to-desc {
+    @apply mb-2;
+  }
+
+  /* description → CTA button : 16 px */
+  .desc-to-btn {
+    @apply mt-4;
+  }
+
+  /* ── Body copy ── */
+
+  /* Description text beneath section headings */
+  .section-description {
+    @apply font-sans text-[14px] md:text-[16px] text-[#131C2B]/70 leading-relaxed;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   SCROLLBAR HIDE
+───────────────────────────────────────────── */
+.scrollbar-hidden::-webkit-scrollbar,
+.hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
+/* ─────────────────────────────────────────────
+   BUTTON UTILITIES
+───────────────────────────────────────────── */
 @layer utilities {
   .btn-primary {
-    @apply px-6 py-3 bg-[var(--color-gold)] text-white rounded-lg font-medium flex items-center justify-center gap-2 hover:bg-[#8F6F4E] transition-colors w-fit;
+    @apply px-6 py-3 bg-[var(--color-gold)] text-white rounded-md font-medium flex items-center justify-center gap-2 hover:bg-[#8F6F4E] transition-colors w-fit;
   }
+
   .btn-outline {
     @apply px-6 py-2.5 border border-black rounded-lg font-medium hover:bg-black hover:text-white transition-colors w-fit;
   }

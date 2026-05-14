@@ -8,10 +8,10 @@ import { Menu, X, BookOpen } from 'lucide-react';
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '#about', label: 'About' },
-  { href: '#services', label: 'Services' },
+  { href: '/practice-areas', label: 'Practice Areas' },
   { href: '#industries', label: 'Industries' },
-  { href: '#insights', label: 'Insights' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/insights', label: 'Insights' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 export default function Navbar() {
@@ -19,8 +19,8 @@ export default function Navbar() {
 
   return (
     <div className="w-full flex flex-col">
-      {/* Top Banner */}
-      <div className="w-full bg-[#CBB283] py-2 flex items-center justify-center">
+      {/* Top Banner — hidden on mobile */}
+      <div className="hidden md:flex w-full bg-[#CBB283] py-2 items-center justify-center">
         <p className="text-[#131C2B] text-[13px] md:text-sm font-medium flex items-center gap-2 text-center px-4">
           <BookOpen className="w-4 h-4 opacity-70 shrink-0" />
           The Importance of Timely Compliance in Labour Law &amp; Regulatory Obligations
@@ -106,7 +106,7 @@ export default function Navbar() {
 
             <div className="mt-auto px-8 pb-8">
               <Link
-                href="#contact"
+                href="/contact"
                 onClick={() => setMenuOpen(false)}
                 className="block w-full text-center bg-[#A17755] hover:bg-[#8F6F4E] text-white rounded-md py-3 text-[15px] font-medium transition-colors"
               >

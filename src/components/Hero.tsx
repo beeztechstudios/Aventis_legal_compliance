@@ -40,7 +40,7 @@ function TypewriterQuote() {
   }, [handleScroll]);
 
   return (
-    <section ref={sectionRef} className="w-full px-6 md:px-12 py-24 md:py-32 bg-[#FAF1E1]">
+    <section ref={sectionRef} className="w-full px-6 md:px-12 py-12 md:py-24 bg-[#FAF1E1]">
       <div className="max-w-[1000px] mx-auto text-center">
         <p
           className="font-sans font-normal leading-[1.6] text-center tracking-tight"
@@ -67,21 +67,21 @@ function TypewriterQuote() {
 export default function Hero() {
   return (
     <div className="w-full flex flex-col">
-      <section className="px-6 md:px-12 py-16 md:py-24 w-full overflow-hidden">
+      <section className="px-6 md:px-12 pt-12 md:pt-24 pb-0 md:pb-12 w-full overflow-hidden">
         {/* Top Text Section (Side by Side) */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-12 lg:gap-24 mb-8">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-2 md:gap-12 lg:gap-24 mb-8">
 
           {/* Left Side: Big Heading */}
           <div className="flex-1 lg:max-w-[65%]">
-            <h1 className="font-serif font-normal text-[1.7rem] sm:text-[2rem] md:text-[2.3rem] lg:text-[2.2rem] xl:text-[3.4rem] 2xl:text-[4.5rem] leading-[1.12] tracking-tight text-[#131C2B]">
-              <span className="block lg:whitespace-nowrap">Simplifying Compliance.</span>
-              <span className="block lg:whitespace-nowrap">Strengthening Governance.</span>
+            <h1 className="heading-hero !text-[28px] md:!text-[48px] lg:!text-[64px] max-w-full mb-2">
+              <span className="block whitespace-nowrap">Simplifying Compliance.</span>
+              <span className="block whitespace-nowrap">Strengthening Governance.</span>
             </h1>
           </div>
 
           {/* Right Side: Description and CTA */}
-          <div className="flex-1 lg:max-w-[35%] flex flex-col items-start pt-4 lg:pt-0">
-            <p className="text-[#131C2B] text-[15px] md:text-[17px] leading-relaxed mb-8">
+          <div className="flex-1 lg:max-w-[35%] flex flex-col items-start pt-0 lg:pt-0">
+            <p className="section-description heading-to-desc mb-4">
               Labour law, regulatory compliance, and HR advisory solutions
               designed for modern, growing businesses across India.
             </p>

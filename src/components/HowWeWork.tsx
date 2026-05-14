@@ -52,17 +52,17 @@ export default function HowWeWork() {
   };
 
   return (
-    <section id="how-we-work" className="bg-[#FAF1E1] py-24 md:py-32 w-full overflow-hidden">
+    <section id="how-we-work" className="bg-[#FAF1E1] py-12 md:py-16 w-full overflow-hidden">
       <div className="w-full px-6 md:px-12 mx-auto">
 
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 md:mb-16 gap-6">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 md:mb-16 gap-6">
           <div>
-            <h2 className="font-serif text-[2.5rem] md:text-[3.5rem] text-[#131C2B] mb-4">How We Work</h2>
-            <p className="font-sans text-[14px] md:text-[16px] text-[#131C2B]/70 max-w-[600px] leading-relaxed">
+            <h2 className="heading-section heading-to-desc">How We Work</h2>
+            <p className="section-description max-w-[600px]">
               A structured approach to ensure seamless compliance and efficient execution.
             </p>
           </div>
-          <div className="flex gap-2 self-end md:self-auto">
+          <div className="flex gap-2 self-start md:self-auto justify-start">
             <button
               onClick={scrollLeft}
               className="w-8 h-8 md:w-10 md:h-10 bg-[#A17755] flex items-center justify-center text-white hover:bg-[#8e6e4d] transition-colors shadow-sm rounded-sm"
@@ -117,7 +117,7 @@ export default function HowWeWork() {
                       ${isActive ? 'p-5 md:p-6' : 'p-4 md:p-6 group-hover:p-5 md:group-hover:p-6'}`}
                   >
                     <h3
-                      className={`font-serif text-[15px] md:text-[18px] text-white leading-snug transition-all duration-500
+                      className={`heading-sub text-white transition-all duration-500
                         ${isActive ? 'mb-3' : 'mb-0 group-hover:mb-3'}`}
                     >
                       {step.title}

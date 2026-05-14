@@ -23,9 +23,9 @@ export default function PracticeAreas() {
   };
 
   return (
-    <section id="services" className="w-full pb-24">
+    <section id="services" className="w-full pb-12 md:pb-24">
       {/* Top Divider and Controls */}
-      <div className="px-6 md:px-12 w-full mb-12 flex items-center gap-4">
+      <div className="px-6 md:px-12 w-full mb-6 md:mb-12 flex items-center gap-4">
         <div className="text-[11px] font-sans font-semibold tracking-wide uppercase text-[#131C2B] whitespace-nowrap">
           Practice Areas
         </div>
@@ -52,12 +52,12 @@ export default function PracticeAreas() {
               key={idx}
               className="min-w-[240px] md:min-w-[280px] snap-start flex flex-col"
             >
-              <h3 className="font-serif text-xl md:text-[22px] font-medium mb-4 text-[#131C2B] leading-snug">
+              <h3 className="heading-sub mb-2 md:mb-4">
                 {area.title.split(' ').map((word, i) => (
                   <span key={i}>{word} </span>
                 ))}
               </h3>
-              <p className="text-[#131C2B]/70 text-[13px] md:text-sm leading-relaxed mb-6 font-sans">
+              <p className="text-[#131C2B]/70 text-[13px] md:text-sm leading-relaxed mb-4 md:mb-6 font-sans">
                 {area.desc}
               </p>
               <div className="mt-auto">
