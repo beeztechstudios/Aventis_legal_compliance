@@ -127,7 +127,7 @@ export default async function BlogDetailsPage({
         {/* Hero Image - Edge to Edge */}
         <div className="w-full relative aspect-video md:aspect-[21/9] overflow-hidden bg-[#131C2B]/5">
           <Image
-            src={post.featuredImage ? urlForImage(post.featuredImage)?.url() || '/blog-details-hero.png' : '/blog-details-hero.png'}
+            src={post.featuredImage?.asset ? urlForImage(post.featuredImage)?.url() || '/blog-details-hero.png' : '/blog-details-hero.png'}
             alt={post.title}
             fill
             className="object-cover"

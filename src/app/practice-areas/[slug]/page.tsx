@@ -83,7 +83,7 @@ export default async function PracticeAreaDetailPage({
 
       {/* Hero Banner */}
       <section className="relative w-full min-h-[400px] md:min-h-[500px] flex items-end overflow-hidden">
-        {area.featuredImage ? (
+        {area.featuredImage?.asset ? (
           <Image
             src={urlForImage(area.featuredImage)?.url() || "/practice-details-hero.png"}
             alt={area.title}
