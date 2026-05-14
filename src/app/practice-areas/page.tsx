@@ -1,108 +1,101 @@
-"use client";
-import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import FAQ from "@/components/FAQ";
 import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
 import Image from "next/image";
-import Link from "next/link";
+import { client } from "@/sanity/client";
+import PracticeAreasGrid from "@/components/PracticeAreasGrid";
 
-const practiceAreas = [
+export const revalidate = 60;
+
+async function getPracticeAreas() {
+  const query = `*[_type == "practiceArea"] | order(_createdAt asc) {
+    title,
+    "slug": slug.current,
+    excerpt
+  }`;
+  
+  try {
+    const areas = await client.fetch(query);
+    return areas;
+  } catch (error) {
+    console.error("Failed to fetch practice areas:", error);
+    return [];
+  }
+}
+
+// Fallback data if Sanity is empty
+const fallbackAreas = [
   {
     slug: "labour-law-advisory-compliance",
     title: "Labour Law Advisory &\nCompliance",
-    desc: "Comprehensive advisory and compliance support under central and state labour laws to help businesses manage workforce regulations efficiently.",
-    icon: "/labour-law-advisory.svg",
-    dark: false,
+    excerpt: "Comprehensive advisory and compliance support under central and state labour laws to help businesses manage workforce regulations efficiently.",
   },
   {
     slug: "regulatory-compliance-governance",
     title: "Regulatory Compliance &\nGovernance (GRC)",
-    desc: "Structured governance and compliance solutions focused on improving regulatory alignment and reducing operational risks.",
-    icon: "/regulatory-compliance.svg",
-    dark: false,
+    excerpt: "Structured governance and compliance solutions focused on improving regulatory alignment and reducing operational risks.",
   },
   {
     slug: "payroll-statutory-compliance",
     title: "Payroll & Statutory\nCompliances",
-    desc: "Support for PF, ESI, PT, LWF, and related statutory obligations with accurate and timely compliance management.",
-    icon: "/payroll-compliance.svg",
-    dark: false,
+    excerpt: "Support for PF, ESI, PT, LWF, and related statutory obligations with accurate and timely compliance management.",
   },
   {
     slug: "labour-law-audits-due-diligence",
     title: "Labour Law Audits &\nDue Diligence",
-    desc: "Detailed compliance audits and due diligence assessments to identify gaps, risks, and regulatory concerns.",
-    icon: "/labour-law-audits.svg",
-    dark: false,
+    excerpt: "Detailed compliance audits and due diligence assessments to identify gaps, risks, and regulatory concerns.",
   },
   {
     slug: "registration-licensing-services",
     title: "Registration &\nLicensing (Pan-India)",
-    desc: "Assistance with labour registrations, licenses, and statutory approvals across multiple states in India.",
-    icon: "/registrations-licesnsing.svg",
-    dark: false,
+    excerpt: "Assistance with labour registrations, licenses, and statutory approvals across multiple states in India.",
   },
   {
     slug: "ongoing-compliance-management",
     title: "Ongoing Compliance\nManagement & Filings",
-    desc: "End-to-end compliance management including filings, documentation, and regulatory coordination support.",
-    icon: "/ongoing-compliance.svg",
-    dark: false,
+    excerpt: "End-to-end compliance management including filings, documentation, and regulatory coordination support.",
   },
   {
     slug: "maintenance-of-statutory-registers",
     title: "Maintenance of Statutory\nRegisters & Records",
-    desc: "Support for maintaining statutory registers, records, and documentation as required under applicable laws.",
-    icon: "/maintainance-records.svg",
-    dark: false,
+    excerpt: "Support for maintaining statutory registers, records, and documentation as required under applicable laws.",
   },
   {
     slug: "contractor-vendor-compliance",
     title: "Contractor & Vendor\nCompliance Management",
-    desc: "Compliance support for contractors, vendors, and third-party workforce management across business operations.",
-    icon: "/contractor-vendor.svg",
-    dark: false,
+    excerpt: "Compliance support for contractors, vendors, and third-party workforce management across business operations.",
   },
   {
     slug: "labour-department-liaison",
     title: "Labour Department Liaison &\nRepresentation",
-    desc: "Professional coordination with labour authorities for inspections, notices, and regulatory interactions.",
-    icon: "/labour-department.svg",
-    dark: false,
+    excerpt: "Professional coordination with labour authorities for inspections, notices, and regulatory interactions.",
   },
   {
     slug: "workplace-investigations",
     title: "Workplace Investigations &\nDisciplinary Proceedings",
-    desc: "Structured support for workplace investigations, disciplinary matters, and internal proceedings.",
-    icon: "/workplace-investigations.svg",
-    dark: false,
+    excerpt: "Structured support for workplace investigations, disciplinary matters, and internal proceedings.",
   },
   {
     slug: "posh-advisory-compliance",
     title: "POSH Advisory & Sexual\nHarassment Compliance",
-    desc: "Comprehensive POSH compliance support including policy drafting, IC setup, and training programs.",
-    icon: "/POSH-advisory.svg",
-    dark: false,
+    excerpt: "Comprehensive POSH compliance support including policy drafting, IC setup, and training programs.",
   },
   {
     slug: "hr-policies-employment",
     title: "HR Policies & Employment\nDocumentation",
-    desc: "Drafting and review of HR policies, employment contracts, and workplace governance documentation.",
-    icon: "/HR-policies.svg",
-    dark: false,
+    excerpt: "Drafting and review of HR policies, employment contracts, and workplace governance documentation.",
   },
   {
     slug: "taxation-allied-advisory",
     title: "Taxation & Allied\nRegulatory Advisory",
-    desc: "Advisory support relating to taxation matters and allied regulatory compliance requirements.",
-    icon: "/taxation-advisory.svg",
-    dark: false,
+    excerpt: "Advisory support relating to taxation matters and allied regulatory compliance requirements.",
   }
 ];
 
-export default function PracticeAreasPage() {
-  const [activeIdx, setActiveIdx] = useState<number | null>(null);
+export default async function PracticeAreasPage() {
+  const sanityAreas = await getPracticeAreas();
+  const areas = sanityAreas && sanityAreas.length > 0 ? sanityAreas : fallbackAreas;
 
   return (
     <main className="flex flex-col min-h-screen bg-[#FAF1E1]">
@@ -152,49 +145,7 @@ export default function PracticeAreasPage() {
         </div>
 
         {/* Grid Container */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
-          {practiceAreas.map((area, idx) => {
-            const isActive = activeIdx === idx;
-            return (
-              <div
-                key={idx}
-                onClick={() => setActiveIdx(isActive ? null : idx)}
-                className="relative p-8 md:p-10 flex flex-col h-[380px] md:h-[400px] bg-[#FDE9CA] overflow-hidden group cursor-pointer transition-colors duration-500"
-              >
-                {/* Blue fill rising from bottom on hover/click */}
-                <div className={`absolute inset-x-0 bottom-0 bg-[#121C2A] transition-all duration-500 ease-in-out group-hover:h-full z-0 ${isActive ? 'h-full' : 'h-0'}`} />
-
-                {/* Icon — equal gap above (card padding) and below before text */}
-                <div className="relative z-10 mb-8 md:mb-10">
-                  <Image
-                    src={area.icon}
-                    alt={area.title}
-                    width={60}
-                    height={60}
-                    className={`transition-all duration-500 group-hover:brightness-100 group-hover:invert-0 ${isActive ? 'brightness-100' : 'brightness-0'}`}
-                  />
-                </div>
-
-                {/* Text block — shifts upward on hover/click */}
-                <div className={`relative z-10 mt-auto flex flex-col transition-transform duration-500 ease-in-out group-hover:-translate-y-28 ${isActive ? '-translate-y-28' : 'translate-y-0'}`}>
-                  <h3 className={`heading-sub mb-3 leading-[1.3] whitespace-pre-line transition-colors duration-500 group-hover:text-[#FDEACB] ${isActive ? 'text-[#FDEACB]' : 'text-[#121C2A]'}`}>
-                    {area.title}
-                  </h3>
-                  <p className={`text-[13px] md:text-[14px] leading-relaxed font-sans line-clamp-3 transition-colors duration-500 group-hover:text-[#FDEACB]/80 ${isActive ? 'text-[#FDEACB]/80' : 'text-[#121C2A]/70'}`}>
-                    {area.desc}
-                  </p>
-                </div>
-
-                {/* Read More — pinned to bottom-left, hidden until hover/click */}
-                <div className={`absolute bottom-8 md:bottom-10 left-8 md:left-10 z-10 transition-all duration-400 ease-in-out delay-150 group-hover:opacity-100 ${isActive ? 'opacity-100' : 'opacity-0'}`}>
-                  <Link href={`/practice-areas/${area.slug}`} className="bg-white text-[#A57858] px-5 py-2 text-[13px] font-sans font-medium hover:bg-[#FDEACB] hover:text-[#121C2A] transition-colors border-none inline-block">
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        <PracticeAreasGrid areas={areas} />
       </section>
 
       <FAQ />

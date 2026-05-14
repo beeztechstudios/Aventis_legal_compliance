@@ -9,7 +9,7 @@ const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!
 export default defineConfig({
   basePath: '/studio',
   name: 'default',
-  title: 'Pramanika Legal CMS',
+  title: 'Aventis Legal Compliance CMS',
 
   projectId,
   dataset,

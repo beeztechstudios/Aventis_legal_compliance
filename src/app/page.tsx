@@ -9,7 +9,9 @@ import FAQ from "@/components/FAQ";
 import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
 
-export default function Home() {
+
+export default async function Home() {
+
   return (
     <main className="flex flex-col min-h-screen bg-[#FAF1E1]">
       <Navbar />
