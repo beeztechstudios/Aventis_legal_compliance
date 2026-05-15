@@ -62,7 +62,7 @@ export default function HowWeWork() {
               A structured approach to ensure seamless compliance and efficient execution.
             </p>
           </div>
-          <div className="flex gap-2 self-start md:self-auto justify-start">
+          <div className="flex 2xl:hidden gap-2 self-start md:self-auto justify-start">
             <button
               onClick={scrollLeft}
               className="w-8 h-8 md:w-10 md:h-10 bg-[#A17755] flex items-center justify-center text-white hover:bg-[#8e6e4d] transition-colors shadow-sm rounded-sm"
@@ -80,7 +80,7 @@ export default function HowWeWork() {
 
         <div
           ref={scrollContainerRef}
-          className="flex overflow-x-auto snap-x snap-mandatory gap-4 w-full pb-8 scrollbar-hidden"
+          className="grid grid-flow-col auto-cols-[85vw] md:auto-cols-[65vw] lg:auto-cols-[calc(46.75%-1rem)] 2xl:grid-flow-row 2xl:grid-cols-4 gap-4 overflow-x-auto 2xl:overflow-x-visible snap-x snap-mandatory 2xl:snap-none w-full pb-8 2xl:pb-0 scrollbar-hidden"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {steps.map((step, idx) => {
@@ -88,7 +88,7 @@ export default function HowWeWork() {
             return (
               <div
                 key={idx}
-                className="flex-none w-[85vw] md:w-[65vw] lg:w-[calc(42.5%-1rem)] xl:w-[480px] group relative overflow-hidden aspect-square cursor-pointer snap-start"
+                className="relative overflow-hidden aspect-square cursor-pointer snap-start group"
                 onClick={() => toggleCard(idx)}
               >
                 <Image
@@ -108,17 +108,17 @@ export default function HowWeWork() {
                     className={`absolute top-5 left-5 md:top-6 md:left-6 transition-opacity duration-500 delay-100
                       ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
                   >
-                    <span className="font-serif text-[3rem] md:text-[4rem] text-white/20 leading-none">{step.number}</span>
+                    <span className="font-serif text-[4rem] md:text-[5rem] lg:text-[6rem] 2xl:text-[5rem] text-white/20 leading-none">{step.number}</span>
                   </div>
 
                   {/* Text content */}
                   <div
                     className={`flex flex-col justify-end h-full transition-all duration-500
-                      ${isActive ? 'p-5 md:p-6' : 'p-4 md:p-6 group-hover:p-5 md:group-hover:p-6'}`}
+                      ${isActive ? 'p-4 md:p-5' : 'p-4 md:p-5 group-hover:p-4 md:group-hover:p-5'}`}
                   >
                     <h3
-                      className={`heading-sub text-white transition-all duration-500
-                        ${isActive ? 'mb-3' : 'mb-0 group-hover:mb-3'}`}
+                      className={`font-serif font-medium text-white transition-all duration-500 text-[18px] md:text-[24px] lg:text-[24px] xl:text-[28px] 2xl:text-[22px]
+                        ${isActive ? 'mb-2' : 'mb-0 group-hover:mb-2'}`}
                     >
                       {step.title}
                     </h3>
@@ -129,7 +129,7 @@ export default function HowWeWork() {
                     >
                       <div className="overflow-hidden">
                         <p
-                          className={`text-white/60 text-[12px] md:text-[13px] leading-[1.6] font-sans transition-opacity duration-500 delay-150
+                          className={`text-white/70 text-[12px] md:text-[16px] lg:text-[17px] xl:text-[18px] 2xl:text-[15px] leading-[1.5] font-sans transition-opacity duration-500 delay-150
                             ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
                         >
                           {step.description}

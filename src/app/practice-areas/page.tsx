@@ -102,9 +102,9 @@ export default async function PracticeAreasPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative w-full px-6 md:px-12 flex flex-col lg:flex-row lg:items-center justify-between gap-10 lg:gap-8 z-10 overflow-hidden">
-        <div className="w-full lg:w-[48%] pt-16 md:pt-24 pb-0 flex flex-col z-10 relative">
-          <h1 className="heading-hero !text-[30px] md:!text-[48px] lg:!text-[64px] mb-2">
+      <section className="relative w-full px-6 md:px-12 flex flex-col xl:flex-row xl:items-center justify-between gap-4 md:gap-6 xl:gap-8 z-10 overflow-hidden">
+        <div className="w-full xl:w-[48%] pt-12 md:pt-16 pb-0 flex flex-col z-10 relative">
+          <h1 className="heading-hero mb-2">
             <span className="block whitespace-nowrap">Labour Law &</span>
             <span className="block whitespace-nowrap">Compliance Solutions</span>
             <span className="block whitespace-nowrap">for Modern Businesses</span>
@@ -119,7 +119,7 @@ export default async function PracticeAreasPage() {
           </div>
         </div>
 
-        <div className="w-full lg:w-[45%] h-[250px] sm:h-[300px] md:h-[380px] lg:h-[400px] xl:h-[460px] 2xl:h-[500px] relative z-10 overflow-hidden rounded-md lg:-mt-16 xl:-mt-24">
+        <div className="w-full xl:w-[45%] h-[250px] sm:h-[300px] md:h-[380px] lg:h-[400px] xl:h-[460px] 2xl:h-[500px] relative z-10 overflow-hidden rounded-md xl:-mt-16 xl:-mt-24">
           {/* Diagonal line behind the image */}
           <div className="absolute -left-[30%] top-1/2 w-[130%] h-[1px] border-b border-dashed border-[#A17755]/40 rotate-[-15deg] z-[-1] pointer-events-none" />
           <Image

@@ -4,7 +4,7 @@ import PracticeAreas from "@/components/PracticeAreas";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import IndustriesWeServe from "@/components/IndustriesWeServe";
 import HowWeWork from "@/components/HowWeWork";
-import OurProfessionals from "@/components/Testimonials";
+import OurProfessionals from "@/components/OurProfessionals";
 import FAQ from "@/components/FAQ";
 import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";

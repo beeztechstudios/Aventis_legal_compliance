@@ -49,11 +49,11 @@ export default async function InsightsPage() {
       <Navbar />
 
       {/* Header Section */}
-      <section className="px-6 md:px-12 pt-12 md:pt-16 pb-0 w-full flex flex-col lg:flex-row justify-between items-start lg:items-center gap-2 md:gap-12 lg:gap-24">
-        <h1 className="heading-hero !text-[30px] md:!text-[48px] lg:!text-[64px] flex-1 lg:max-w-[65%]">
+      <section className="px-6 md:px-12 pt-10 md:pt-16 pb-0 w-full flex flex-col xl:flex-row justify-between items-start xl:items-center gap-2 md:gap-6 xl:gap-24">
+        <h1 className="heading-hero flex-1 xl:max-w-[65%]">
           Resources & Insights
         </h1>
-        <div className="flex flex-col items-start gap-4 flex-1 lg:max-w-[35%] pt-4 lg:pt-0">
+        <div className="flex flex-col items-start gap-4 flex-1 xl:max-w-[35%] pt-4 xl:pt-0">
           <p className="section-description mb-2 text-left">
             Labour law updates, compliance guidance, and practical business insights designed to help organizations stay informed and compliant.
           </p>

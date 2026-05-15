@@ -23,6 +23,10 @@
   --foreground: #131C2B;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @layer base {
   body {
     background-color: var(--background);
@@ -39,6 +43,16 @@
     @apply font-serif tracking-tight;
     color: var(--foreground);
   }
+
+  button, 
+  a,
+  .cursor-pointer {
+    cursor: pointer !important;
+  }
+
+  #connect {
+    scroll-margin-top: 100px;
+  }
 }
 
 /* ─────────────────────────────────────────────
@@ -51,20 +65,20 @@
   /* Hero h1 — homepage only */
   .heading-hero {
     @apply font-serif font-normal leading-[1.12] tracking-tight text-[#131C2B];
-    font-size: 28px;
+    font-size: 28px; /* Phone */
     max-width: 100%;
     word-break: keep-all;
   }
 
   @media (min-width: 768px) {
     .heading-hero {
-      font-size: 48px;
+      font-size: 48px; /* iPad Air */
     }
   }
 
   @media (min-width: 1024px) {
     .heading-hero {
-      font-size: 64px;
+      font-size: 64px; /* iPad Pro & Desktop */
     }
   }
 
@@ -76,7 +90,7 @@
 
   @media (min-width: 768px) {
     .heading-section {
-      font-size: 3.5rem;
+      font-size: 40px;
     }
   }
 

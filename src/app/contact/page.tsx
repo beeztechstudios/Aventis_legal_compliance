@@ -69,9 +69,9 @@ export default function ContactPage() {
       <Navbar />
 
       {/* Contact Hero Section */}
-      <section className="px-6 md:px-12 w-full relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-8">
+      <section className="px-6 md:px-12 w-full relative overflow-hidden flex flex-col xl:flex-row items-center justify-between gap-4 md:gap-6 xl:gap-8">
         {/* Decorative Lines */}
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0 hidden lg:block">
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0 hidden xl:block">
           <svg width="100%" height="100%" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-30">
             <path d="M 350,550 L 550,450 L 800,550" stroke="#A17755" strokeWidth="1" />
             <path d="M 350,600 L 550,500 L 800,600" stroke="#A17755" strokeWidth="1" />
@@ -79,10 +79,10 @@ export default function ContactPage() {
         </div>
 
         {/* Left Side: Content */}
-        <div className="w-full lg:w-[48%] hero-content pt-16 md:pt-24 pb-0 relative z-10">
-          <h1 className="heading-hero !text-[30px] md:!text-[48px] lg:!text-[64px] mb-2">
-            <span className="block lg:whitespace-nowrap">Contact Aventis</span>
-            <span className="block lg:whitespace-nowrap">Compliance Solutions</span>
+        <div className="w-full xl:w-[48%] hero-content pt-12 md:pt-16 pb-0 relative z-10">
+          <h1 className="heading-hero mb-2">
+            <span className="block xl:whitespace-nowrap">Contact Aventis</span>
+            <span className="block xl:whitespace-nowrap">Compliance Solutions</span>
           </h1>
           <p className="section-description heading-to-desc mb-4 max-w-[540px]">
             Connect with our team for reliable labour law compliance and regulatory support tailored to your business requirements.
@@ -100,7 +100,7 @@ export default function ContactPage() {
         </div>
 
         {/* Right Side: Image */}
-        <div className="w-full lg:w-[50%] h-[280px] sm:h-[340px] md:h-[420px] lg:h-[480px] xl:h-[520px] 2xl:h-[580px] relative hero-image z-10 rounded-lg overflow-hidden">
+        <div className="w-full xl:w-[50%] h-[280px] sm:h-[340px] md:h-[420px] lg:h-[480px] xl:h-[520px] 2xl:h-[580px] relative hero-image z-10 rounded-lg overflow-hidden">
           <Image
             src="/contact.png"
             alt="Contact Hero Image"
@@ -112,7 +112,7 @@ export default function ContactPage() {
       </section>
 
       {/* Connect Section */}
-      <section id="contact-details" className="px-6 md:px-12 py-20 md:py-32 w-full bg-[#FAF1E1]">
+      <section id="connect" className="px-6 md:px-12 py-20 md:py-32 w-full bg-[#FAF1E1]">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
           {/* Left Column: Info & Map */}
           <div className="flex-1 lg:max-w-[45%] flex flex-col">

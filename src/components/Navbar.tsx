@@ -7,7 +7,7 @@ import { Menu, X, BookOpen } from 'lucide-react';
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '#about', label: 'About' },
+  { href: '/about', label: 'About' },
   { href: '/practice-areas', label: 'Practice Areas' },
   { href: '#industries', label: 'Industries' },
   { href: '/insights', label: 'Insights' },
@@ -106,9 +106,9 @@ export default function Navbar() {
 
             <div className="mt-auto px-8 pb-8">
               <Link
-                href="/contact"
+                href="/contact#connect"
                 onClick={() => setMenuOpen(false)}
-                className="block w-full text-center bg-[#A17755] hover:bg-[#8F6F4E] text-white rounded-md py-3 text-[15px] font-medium transition-colors"
+                className="block w-full text-center bg-[#A17755] hover:bg-[#8F6F4E] text-white rounded-md py-3 text-[15px] font-medium transition-colors cursor-pointer"
               >
                 Book Consultation
               </Link>

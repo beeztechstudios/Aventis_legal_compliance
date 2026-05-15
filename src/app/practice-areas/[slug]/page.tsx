@@ -111,7 +111,7 @@ export default async function PracticeAreaDetailPage({
             Back to Practice Areas
           </a>
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight max-w-4xl">
+          <h1 className="heading-hero !text-white leading-tight max-w-4xl">
             {area.title}
           </h1>
           

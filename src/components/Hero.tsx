@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useRef, useState, useCallback } from 'react';
 
 const QUOTE =
@@ -67,27 +68,28 @@ function TypewriterQuote() {
 export default function Hero() {
   return (
     <div className="w-full flex flex-col">
-      <section className="px-6 md:px-12 pt-12 md:pt-24 pb-0 md:pb-12 w-full overflow-hidden">
+      <section className="px-6 md:px-12 pt-10 md:pt-16 pb-0 md:pb-12 w-full overflow-hidden">
         {/* Top Text Section (Side by Side) */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-2 md:gap-12 lg:gap-24 mb-8">
-
+        <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-2 md:gap-4 xl:gap-24 mb-8">
           {/* Left Side: Big Heading */}
-          <div className="flex-1 lg:max-w-[65%]">
-            <h1 className="heading-hero !text-[28px] md:!text-[48px] lg:!text-[64px] max-w-full mb-2">
+          <div className="flex-1 xl:max-w-[65%]">
+            <h1 className="heading-hero max-w-full mb-2">
               <span className="block whitespace-nowrap">Simplifying Compliance.</span>
               <span className="block whitespace-nowrap">Strengthening Governance.</span>
             </h1>
           </div>
-
           {/* Right Side: Description and CTA */}
-          <div className="flex-1 lg:max-w-[35%] flex flex-col items-start pt-0 lg:pt-0">
+          <div className="flex-1 xl:max-w-[35%] flex flex-col items-start pt-0 xl:pt-0">
             <p className="section-description heading-to-desc mb-4">
               Labour law, regulatory compliance, and HR advisory solutions
               designed for modern, growing businesses across India.
             </p>
-            <button className="btn-primary shadow-sm text-[15px] px-8 py-3.5 bg-[#A17755] hover:bg-[#8F6F4E] rounded-md">
+            <Link 
+              href="/contact#connect"
+              className="btn-primary shadow-sm text-[15px] px-8 py-3.5 bg-[#A17755] hover:bg-[#8F6F4E] rounded-md cursor-pointer inline-flex items-center justify-center"
+            >
               Book Consultation
-            </button>
+            </Link>
             <p className="text-[#131C2B]/60 text-xs mt-6 font-sans">
               Located in <span className="font-semibold text-[#131C2B]">India.</span>
             </p>

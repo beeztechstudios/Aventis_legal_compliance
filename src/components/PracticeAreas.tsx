@@ -50,7 +50,7 @@ export default function PracticeAreas() {
           {areas.map((area, idx) => (
             <div
               key={idx}
-              className="min-w-[240px] md:min-w-[280px] snap-start flex flex-col"
+              className="min-w-[240px] md:min-w-[280px] snap-start flex flex-col cursor-pointer"
             >
               <h3 className="heading-sub mb-2 md:mb-4">
                 {area.title.split(' ').map((word, i) => (

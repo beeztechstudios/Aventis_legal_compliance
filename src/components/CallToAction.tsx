@@ -1,15 +1,10 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function CallToAction() {
-  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL;
 
-  const handleBookConsultation = () => {
-    if (calendlyUrl) {
-      window.open(calendlyUrl, '_blank');
-    }
-  };
 
   return (
     <section id="start-consultation" className="relative w-full overflow-hidden bg-[#0F1626] py-12 md:py-40 flex flex-col items-center justify-center text-center">
@@ -33,13 +28,12 @@ export default function CallToAction() {
           Start free<br />consultation
         </h1>
 
-        <button 
-          type="button"
-          onClick={handleBookConsultation}
-          className="bg-[#E3D0AD] text-[#131C2B] px-5 py-3 rounded-[4px] font-sans font-medium text-[15px] hover:bg-[#d8c09a] transition-colors"
+        <Link 
+          href="/contact#connect"
+          className="bg-[#E3D0AD] text-[#131C2B] px-5 py-3 rounded-[4px] font-sans font-medium text-[15px] hover:bg-[#d8c09a] transition-colors cursor-pointer inline-block"
         >
           Book a Consultation
-        </button>
+        </Link>
       </div>
 
     </section>
