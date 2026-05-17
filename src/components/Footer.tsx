@@ -42,7 +42,7 @@ export default function Footer() {
                   placeholder="Enter your email"
                   className="flex-1 min-w-0 bg-[#E3D0AD] px-4 sm:px-6 text-[#131C2B] placeholder-[#131C2B]/60 outline-none text-[13px] sm:text-[15px] rounded-none"
                 />
-                <button className="bg-[#A17755] text-white px-5 sm:px-8 font-sans font-medium text-[13px] sm:text-[15px] hover:bg-[#8f6a44] transition-colors rounded-none whitespace-nowrap flex-shrink-0">
+                <button className="btn-premium px-5 sm:px-8 text-[13px] sm:text-[15px] rounded-none whitespace-nowrap flex-shrink-0">
                   Subscribe
                 </button>
               </div>
@@ -56,9 +56,10 @@ export default function Footer() {
               <div className="flex flex-col gap-4">
                 <h5 className="text-[#A17755] font-sans text-[13px] sm:text-[15px] mb-1 font-medium uppercase tracking-wide">Pages</h5>
                 <Link href="/" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Home</Link>
-                <Link href="/#services" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Services</Link>
+                <Link href="/#practice-areas" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Practice Areas</Link>
                 <Link href="/#industries" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Industries</Link>
-                <Link href="/#about" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">About</Link>
+                <Link href="/insights" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Insights</Link>
+                <Link href="/about" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">About</Link>
                 <Link href="/contact" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Contact</Link>
               </div>
 

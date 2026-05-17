@@ -69,9 +69,9 @@ export default function ContactPage() {
       <Navbar />
 
       {/* Contact Hero Section */}
-      <section className="px-6 md:px-12 w-full relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-8">
+      <section className="px-6 md:px-12 w-full relative overflow-hidden flex flex-col xl:flex-row items-center justify-between gap-4 md:gap-6 xl:gap-8">
         {/* Decorative Lines */}
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0 hidden lg:block">
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0 hidden xl:block">
           <svg width="100%" height="100%" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-30">
             <path d="M 350,550 L 550,450 L 800,550" stroke="#A17755" strokeWidth="1" />
             <path d="M 350,600 L 550,500 L 800,600" stroke="#A17755" strokeWidth="1" />
@@ -79,10 +79,10 @@ export default function ContactPage() {
         </div>
 
         {/* Left Side: Content */}
-        <div className="w-full lg:w-[48%] hero-content pt-16 md:pt-24 pb-0 relative z-10">
-          <h1 className="heading-hero !text-[30px] md:!text-[48px] lg:!text-[64px] mb-2">
-            <span className="block lg:whitespace-nowrap">Contact Aventis</span>
-            <span className="block lg:whitespace-nowrap">Compliance Solutions</span>
+        <div className="w-full xl:w-[48%] hero-content pt-12 md:pt-16 pb-0 relative z-10">
+          <h1 className="heading-hero mb-2">
+            <span className="block xl:whitespace-nowrap">Contact Aventis</span>
+            <span className="block xl:whitespace-nowrap">Compliance Solutions</span>
           </h1>
           <p className="section-description heading-to-desc mb-4 max-w-[540px]">
             Connect with our team for reliable labour law compliance and regulatory support tailored to your business requirements.
@@ -90,7 +90,7 @@ export default function ContactPage() {
           <button
             type="button"
             onClick={() => setShowCalendly(true)}
-            className="bg-[#A17755] text-white px-8 py-3.5 rounded-md font-sans font-medium text-[15px] hover:bg-[#8F6F4E] transition-colors shadow-sm"
+            className="btn-premium shadow-sm text-[15px] px-8 py-3.5 rounded-md"
           >
             Book Consultation
           </button>
@@ -100,7 +100,7 @@ export default function ContactPage() {
         </div>
 
         {/* Right Side: Image */}
-        <div className="w-full lg:w-[50%] h-[280px] sm:h-[340px] md:h-[420px] lg:h-[480px] xl:h-[520px] 2xl:h-[580px] relative hero-image z-10 rounded-lg overflow-hidden">
+        <div className="w-full xl:w-[50%] h-[280px] sm:h-[340px] md:h-[420px] lg:h-[480px] xl:h-[520px] 2xl:h-[580px] relative hero-image z-10 rounded-lg overflow-hidden">
           <Image
             src="/contact.png"
             alt="Contact Hero Image"
@@ -112,7 +112,7 @@ export default function ContactPage() {
       </section>
 
       {/* Connect Section */}
-      <section id="contact-details" className="px-6 md:px-12 py-20 md:py-32 w-full bg-[#FAF1E1]">
+      <section id="connect" className="px-6 md:px-12 py-20 md:py-32 w-full bg-[#FAF1E1]">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
           {/* Left Column: Info & Map */}
           <div className="flex-1 lg:max-w-[45%] flex flex-col">
@@ -138,8 +138,8 @@ export default function ContactPage() {
                   <Image src="/mail-icon.svg" alt="Email" width={20} height={20} className="w-5 h-5" />
                 </div>
                 <div>
-                  <a href="mailto:info@aventiscompliance.com" className="text-[#131C2B] text-[16px] md:text-[17px] hover:text-[#A17755] transition-colors">
-                    info@aventiscompliance.com
+                  <a href="mailto:mananoberoi@aventislegal.in" className="text-[#131C2B] text-[16px] md:text-[17px] hover:text-[#A17755] transition-colors">
+                    mananoberoi@aventislegal.in
                   </a>
                 </div>
               </div>
@@ -205,14 +205,22 @@ export default function ContactPage() {
                 </div>
                 <div className="flex-1 flex flex-col gap-3">
                   <label className="text-[14px] font-medium text-[#131C2B] font-sans">Phone Number</label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    placeholder="Enter Your Phone Number"
-                    className="w-full px-5 py-4 bg-[#EBEBEB] border-none rounded-md text-[15px] focus:outline-none focus:ring-1 focus:ring-[#A17755]/30 transition-all placeholder:text-[#131C2B]/60"
-                  />
+                  <div className="flex items-center gap-0">
+                    <span className="inline-flex items-center px-4 py-4 bg-[#D9D7D0] text-[#131C2B] rounded-l-md border border-r-0 border-[#E5E5E5] text-[15px]">
+                      +91
+                    </span>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={(e) => {
+                        const value = e.target.value.replace(/\D/g, "");
+                        setFormData(prev => ({ ...prev, phone: value }));
+                      }}
+                      placeholder="Enter your 10-digit number"
+                      className="flex-1 px-5 py-4 bg-[#EBEBEB] border border-l-0 border-[#E5E5E5] rounded-r-md text-[15px] focus:outline-none focus:ring-1 focus:ring-[#A17755]/30 transition-all placeholder:text-[#131C2B]/60"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -231,7 +239,7 @@ export default function ContactPage() {
               <div className="flex flex-col gap-4 mt-4">
                 <button
                   type="submit"
-                  className="w-full bg-[#A17755] text-white py-4 rounded-md font-sans font-medium text-[16px] hover:bg-[#8F6F4E] transition-colors"
+                  className="btn-premium w-full py-4 rounded-md text-[16px]"
                 >
                   Schedule a Consultation
                 </button>
@@ -261,7 +269,7 @@ export default function ContactPage() {
             name: formData.name,
             email: formData.email,
             customAnswers: {
-              a1: formData.phone,
+              a1: formData.phone ? `+91 ${formData.phone}` : undefined,
               ...(formData.message.trim() ? { a2: formData.message } : {}),
             },
           }}

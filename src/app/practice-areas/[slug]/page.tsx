@@ -111,7 +111,7 @@ export default async function PracticeAreaDetailPage({
             Back to Practice Areas
           </a>
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight max-w-4xl">
+          <h1 className="heading-hero !text-white leading-tight max-w-4xl">
             {area.title}
           </h1>
           
@@ -181,7 +181,7 @@ export default async function PracticeAreaDetailPage({
                 </p>
                 <a 
                   href="/contact" 
-                  className="inline-flex items-center gap-2 bg-[#A17755] text-white px-6 py-3 rounded-md text-sm font-medium hover:bg-[#8F6F4E] transition-colors w-full justify-center"
+                  className="btn-premium inline-flex items-center gap-2 px-6 py-3 rounded-md text-sm font-medium w-full justify-center"
                 >
                   Book a Call
                   <ArrowUpRight className="w-4 h-4" />

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -118,9 +119,12 @@ export default function WhyChooseUs() {
             Practical, reliable, and business-focused compliance support.
           </p>
         </div>
-        <button className="btn-primary desc-to-btn md:mt-0 shadow-sm text-[14px] px-6 py-2.5">
+        <Link 
+          href="/contact#connect"
+          className="btn-premium desc-to-btn md:mt-0 shadow-sm text-[14px] px-6 py-2.5 cursor-pointer inline-flex items-center justify-center rounded-md"
+        >
           Book Consultation
-        </button>
+        </Link>
       </div>
 
       {/* Accordion List */}
