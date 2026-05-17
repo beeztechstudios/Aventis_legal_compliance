@@ -20,7 +20,7 @@ export default async function Home() {
       <WhyChooseUs />
       <IndustriesWeServe />
       <HowWeWork />
-      <OurProfessionals />
+      <OurProfessionals variant="home" />
       <FAQ />
       <CallToAction />
       <Footer />

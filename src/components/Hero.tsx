@@ -44,7 +44,7 @@ function TypewriterQuote() {
     <section ref={sectionRef} className="w-full px-6 md:px-12 py-12 md:py-24 bg-[#FAF1E1]">
       <div className="max-w-[1000px] mx-auto text-center">
         <p
-          className="font-sans font-normal leading-[1.6] text-center tracking-tight"
+          className="font-serif font-medium leading-[1.6] text-center tracking-tight"
           style={{ fontSize: 'clamp(1.3rem, 3.5vw, 3rem)' }}
         >
           {words.map((word, i) => (

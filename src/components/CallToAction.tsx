@@ -25,7 +25,7 @@ export default function CallToAction() {
         <span className="font-sans text-[14px] md:text-[15px] text-white/90 mb-2 md:mb-6 tracking-wide">Let&apos;s start</span>
 
         <h1 className="heading-section text-white mb-2 md:mb-6 !text-[40px] md:!text-[76px] lg:!text-[96px]">
-          Start free<br />consultation
+          Start<br />consultation
         </h1>
 
         <Link 

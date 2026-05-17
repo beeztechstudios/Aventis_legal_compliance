@@ -5,7 +5,9 @@ const professionals = [
     name: 'Isha Wadhwa',
     title: 'Founder and Principal Consultant',
     description:
-      'A legal professional with a focus on labour and employment laws, payroll and statutory compliances, HR audits, POSH advisory, workplace governance, taxation, and allied regulatory matters, holding a B.COM and LL.B degree, enrolled with the Bar Council in 2022, and practicing before the Labour Court and Industrial Tribunal through a practical, structured, and business-oriented compliance approach focused on transparency, operational efficiency, and effective risk mitigation.',
+      'A legal professional advises on labour and employment law matters, payroll and statutory compliances, HR audits, POSH compliances, workplace governance, taxation, and allied regulatory matters through business-oriented approach with focused on operational efficiency and effective risk mitigation.',
+    homeDescription:
+      '"Strong businesses are built on strong compliance. When ethics and law go hand in hand, growth follows naturally."',
     image: '/Isha-Wadhwa.png',
     layout: 'image-left',
   },
@@ -13,13 +15,19 @@ const professionals = [
     name: 'Manan Oberoi',
     title: 'Principal Consultant',
     description:
-      'A legal and compliance professional with over a decade of experience in labour and employment laws, payroll compliances, HR audits, labour law registrations, POSH advisory, workplace governance, labour inspections, employment documentation, and regulatory compliance, holding an LL.B degree, enrolled with the Bar Council in 2010, and practicing before the Labour Court and Industrial Tribunal through a practical, solution-oriented, and business-focused approach with a strong emphasis on compliance management and risk mitigation.',
+      'A legal and compliance professional with over a decade of experience in labour and employment laws matters. He is specialized in advising client in Labour inspection, employment documentation, HR Audit, POSH Compliance & training and awareness sessions and represent the clients before labour court and industrial tribunals.',
+    homeDescription:
+      '"Compliance is not just about avoiding penalties, it\'s about building a workplace with trust, transparency, and responsibility."',
     image: '/Manan-Oberoi.png',
     layout: 'image-right',
   },
 ];
 
-export default function OurProfessionals() {
+interface OurProfessionalsProps {
+  variant?: 'home' | 'about';
+}
+
+export default function OurProfessionals({ variant = 'about' }: OurProfessionalsProps) {
   return (
     <section id="professionals" className="bg-[#FAF1E1] w-full overflow-hidden">
       <div className="max-w-[1300px] mx-auto px-4 md:px-8">
@@ -65,7 +73,7 @@ export default function OurProfessionals() {
                   {pro.title}
                 </p>
                 <p className="font-sans text-[15px] md:text-[16px] text-[#121C2A] leading-relaxed text-justify">
-                  {pro.description}
+                  {variant === 'home' ? pro.homeDescription : pro.description}
                 </p>
               </div>
             </div>
