@@ -47,7 +47,7 @@ export default function OurProfessionals({ variant = 'about' }: OurProfessionals
           {professionals.map((pro, idx) => (
             <div
               key={idx}
-              className={`flex flex-col md:flex-row items-center gap-6 md:gap-8 lg:gap-16 xl:gap-28 ${pro.layout === 'image-right' ? 'md:flex-row-reverse' : ''
+              className={`flex flex-col md:flex-row items-center gap-6 md:gap-15 lg:gap-16 xl:gap-28 ${pro.layout === 'image-right' ? 'md:flex-row-reverse' : ''
                 }`}
             >
               {/* Image Column */}
@@ -65,17 +65,40 @@ export default function OurProfessionals({ variant = 'about' }: OurProfessionals
               </div>
 
               {/* Text Column */}
-              <div className={`flex-1 min-w-0 ${pro.layout === 'image-right' ? 'text-left md:text-right' : 'text-left'}`}>
-                <h3 className="heading-sub text-[#121C2A] text-[22px] md:text-[32px] mb-2">
-                  {pro.name}
-                </h3>
-                <p className="heading-card font-normal text-[#121C2A] mb-4">
-                  {pro.title}
-                </p>
-                <p className="font-sans text-[15px] md:text-[16px] text-[#121C2A] leading-relaxed text-justify">
-                  {variant === 'home' ? pro.homeDescription : pro.description}
-                </p>
-              </div>
+              {variant === 'home' ? (
+                <div className="flex-1 min-w-0 text-left">
+                  <p className="font-sans font-medium text-[16px] md:text-[20px] lg:text-[24px] text-[#121C2A] leading-relaxed mb-6 md:mb-8 text-left">
+                    <span className="inline-block mr-2 align-middle">
+                      <Image
+                        src="/quotation.svg"
+                        alt="Quote"
+                        width={17}
+                        height={17}
+                        className="inline-block -mt-1 md:-mt-2 mr-1"
+                      />
+                    </span>
+                    {pro.homeDescription.replace(/^"|"$/g, '')}”
+                  </p>
+                  <h3 className="font-serif font-medium text-[#121C2A] text-[22px] md:text-[32px] mb-1 leading-tight">
+                    {pro.name}
+                  </h3>
+                  <p className="font-serif font-normal text-[8px] md:text-[10px] lg:text-[12px] text-[#121C2A] mt-1 leading-normal">
+                    {pro.title}
+                  </p>
+                </div>
+              ) : (
+                <div className={`flex-1 min-w-0 ${pro.layout === 'image-right' ? 'text-left md:text-right' : 'text-left'}`}>
+                  <h3 className="heading-sub text-[#121C2A] text-[22px] md:text-[32px] mb-2">
+                    {pro.name}
+                  </h3>
+                  <p className="heading-card font-normal text-[#121C2A] mb-4">
+                    {pro.title}
+                  </p>
+                  <p className="font-sans text-[15px] md:text-[16px] text-[#121C2A] leading-relaxed text-justify">
+                    {pro.description}
+                  </p>
+                </div>
+              )}
             </div>
           ))}
         </div>
