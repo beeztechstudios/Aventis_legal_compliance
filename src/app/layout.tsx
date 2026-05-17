@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
+import { defaultMetadata } from "@/lib/siteMeta";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "Aventis | Legal Compliance",
-  description: "Simplifying Compliance, Strengthening Governance.",
-};
+export const metadata: Metadata = defaultMetadata;
 
 export default function RootLayout({
   children,

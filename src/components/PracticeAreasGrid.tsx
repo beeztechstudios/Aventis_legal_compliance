@@ -66,10 +66,10 @@ export default function PracticeAreasGrid({ areas }: { areas: PracticeArea[] }) 
               </p>
             </div>
 
-            {/* Read More */}
+            {/* Learn More */}
             <div className={`absolute bottom-8 md:bottom-10 left-8 md:left-10 z-10 transition-all duration-400 ease-in-out delay-150 group-hover:opacity-100 ${isActive ? 'opacity-100' : 'opacity-0'}`}>
               <Link href={`/practice-areas/${area.slug}`} className="bg-white text-[#A57858] px-5 py-2 text-[13px] font-sans font-medium hover:bg-[#FDEACB] hover:text-[#121C2A] transition-colors border-none inline-block">
-                Read More
+                Learn more
               </Link>
             </div>
           </div>

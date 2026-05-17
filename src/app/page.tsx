@@ -1,3 +1,5 @@
+import { Metadata } from "next";
+import { homeMetadata } from "@/lib/siteMeta";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import PracticeAreas from "@/components/PracticeAreas";
@@ -9,6 +11,7 @@ import FAQ from "@/components/FAQ";
 import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
 
+export const metadata: Metadata = homeMetadata;
 
 export default async function Home() {
 

@@ -138,8 +138,8 @@ export default function ContactPage() {
                   <Image src="/mail-icon.svg" alt="Email" width={20} height={20} className="w-5 h-5" />
                 </div>
                 <div>
-                  <a href="mailto:info@aventiscompliance.com" className="text-[#131C2B] text-[16px] md:text-[17px] hover:text-[#A17755] transition-colors">
-                    info@aventiscompliance.com
+                  <a href="mailto:mananoberoi@aventislegal.in" className="text-[#131C2B] text-[16px] md:text-[17px] hover:text-[#A17755] transition-colors">
+                    mananoberoi@aventislegal.in
                   </a>
                 </div>
               </div>
@@ -205,14 +205,22 @@ export default function ContactPage() {
                 </div>
                 <div className="flex-1 flex flex-col gap-3">
                   <label className="text-[14px] font-medium text-[#131C2B] font-sans">Phone Number</label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    placeholder="Enter Your Phone Number"
-                    className="w-full px-5 py-4 bg-[#EBEBEB] border-none rounded-md text-[15px] focus:outline-none focus:ring-1 focus:ring-[#A17755]/30 transition-all placeholder:text-[#131C2B]/60"
-                  />
+                  <div className="flex items-center gap-0">
+                    <span className="inline-flex items-center px-4 py-4 bg-[#D9D7D0] text-[#131C2B] rounded-l-md border border-r-0 border-[#E5E5E5] text-[15px]">
+                      +91
+                    </span>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={(e) => {
+                        const value = e.target.value.replace(/\D/g, "");
+                        setFormData(prev => ({ ...prev, phone: value }));
+                      }}
+                      placeholder="Enter your 10-digit number"
+                      className="flex-1 px-5 py-4 bg-[#EBEBEB] border border-l-0 border-[#E5E5E5] rounded-r-md text-[15px] focus:outline-none focus:ring-1 focus:ring-[#A17755]/30 transition-all placeholder:text-[#131C2B]/60"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -261,7 +269,7 @@ export default function ContactPage() {
             name: formData.name,
             email: formData.email,
             customAnswers: {
-              a1: formData.phone,
+              a1: formData.phone ? `+91 ${formData.phone}` : undefined,
               ...(formData.message.trim() ? { a2: formData.message } : {}),
             },
           }}

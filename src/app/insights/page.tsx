@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -7,6 +8,9 @@ import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
 import { client } from '@/sanity/client';
 import { urlForImage } from '@/sanity/image';
+import { insightsMetadata } from '@/lib/siteMeta';
+
+export const metadata: Metadata = insightsMetadata;
 
 export const revalidate = 60;
 

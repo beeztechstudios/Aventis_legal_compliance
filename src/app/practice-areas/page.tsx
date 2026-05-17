@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { practiceAreasMetadata } from "@/lib/siteMeta";
 import Navbar from "@/components/Navbar";
 import FAQ from "@/components/FAQ";
 import CallToAction from "@/components/CallToAction";
@@ -5,6 +7,8 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import { client } from "@/sanity/client";
 import PracticeAreasGrid from "@/components/PracticeAreasGrid";
+
+export const metadata: Metadata = practiceAreasMetadata;
 
 export const revalidate = 60;
 

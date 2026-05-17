@@ -65,7 +65,7 @@ export default function OurProfessionals({ variant = 'about' }: OurProfessionals
               </div>
 
               {/* Text Column */}
-              <div className="flex-1 min-w-0 text-left">
+              <div className={`flex-1 min-w-0 ${pro.layout === 'image-right' ? 'text-left md:text-right' : 'text-left'}`}>
                 <h3 className="heading-sub text-[#121C2A] text-[22px] md:text-[32px] mb-2">
                   {pro.name}
                 </h3>

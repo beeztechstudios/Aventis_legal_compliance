@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+import { aboutMetadata } from '@/lib/siteMeta';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FAQ from '@/components/FAQ';
@@ -8,6 +10,8 @@ import AboutStats from '@/components/about/AboutStats';
 import AboutFoundation from '@/components/about/AboutFoundation';
 import AboutWhyChooseUs from '@/components/about/AboutWhyChooseUs';
 import AboutCTA from '@/components/about/AboutCTA';
+
+export const metadata: Metadata = aboutMetadata;
 
 export default function AboutPage() {
   return (
