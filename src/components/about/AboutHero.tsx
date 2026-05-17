@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function AboutHero() {
   return (
@@ -12,9 +13,9 @@ export default function AboutHero() {
         <p className="section-description heading-to-desc mb-4 max-w-[540px] text-[#131C2B]/80 font-sans">
           Building reliable compliance frameworks through practical, business-focused labour law and regulatory advisory services across India.
         </p>
-        <button className="btn-primary shadow-sm text-[15px] px-8 py-3.5 bg-[#A17755] hover:bg-[#8F6F4E] rounded-md transition-colors">
+        <Link href="/contact#connect" className="btn-premium shadow-sm text-[15px] px-8 py-3.5 rounded-md inline-flex items-center justify-center">
           Discuss your requirements
-        </button>
+        </Link>
       </div>
 
       {/* Right Side: Image */}

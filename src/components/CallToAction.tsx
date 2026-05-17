@@ -30,7 +30,7 @@ export default function CallToAction() {
 
         <Link 
           href="/contact#connect"
-          className="bg-[#E3D0AD] text-[#131C2B] px-5 py-3 rounded-[4px] font-sans font-medium text-[15px] hover:bg-[#d8c09a] transition-colors cursor-pointer inline-block"
+          className="btn-premium-light px-5 py-3 rounded-md font-sans font-medium text-[15px] cursor-pointer inline-block"
         >
           Book a Consultation
         </Link>

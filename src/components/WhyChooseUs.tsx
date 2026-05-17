@@ -121,7 +121,7 @@ export default function WhyChooseUs() {
         </div>
         <Link 
           href="/contact#connect"
-          className="btn-primary desc-to-btn md:mt-0 shadow-sm text-[14px] px-6 py-2.5 cursor-pointer inline-flex items-center justify-center"
+          className="btn-premium desc-to-btn md:mt-0 shadow-sm text-[14px] px-6 py-2.5 cursor-pointer inline-flex items-center justify-center rounded-md"
         >
           Book Consultation
         </Link>

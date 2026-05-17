@@ -181,7 +181,7 @@ export default async function PracticeAreaDetailPage({
                 </p>
                 <a 
                   href="/contact" 
-                  className="inline-flex items-center gap-2 bg-[#A17755] text-white px-6 py-3 rounded-md text-sm font-medium hover:bg-[#8F6F4E] transition-colors w-full justify-center"
+                  className="btn-premium inline-flex items-center gap-2 px-6 py-3 rounded-md text-sm font-medium w-full justify-center"
                 >
                   Book a Call
                   <ArrowUpRight className="w-4 h-4" />

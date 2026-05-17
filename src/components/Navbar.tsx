@@ -9,7 +9,7 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/practice-areas', label: 'Practice Areas' },
-  { href: '#industries', label: 'Industries' },
+  { href: '/#industries', label: 'Industries' },
   { href: '/insights', label: 'Insights' },
   { href: '/contact', label: 'Contact' },
 ];
@@ -108,7 +108,7 @@ export default function Navbar() {
               <Link
                 href="/contact#connect"
                 onClick={() => setMenuOpen(false)}
-                className="block w-full text-center bg-[#A17755] hover:bg-[#8F6F4E] text-white rounded-md py-3 text-[15px] font-medium transition-colors cursor-pointer"
+                className="btn-premium block w-full text-center py-3 text-[15px] rounded-md cursor-pointer"
               >
                 Book Consultation
               </Link>

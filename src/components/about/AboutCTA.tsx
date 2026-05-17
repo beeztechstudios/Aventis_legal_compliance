@@ -31,13 +31,13 @@ export default function AboutCTA() {
           <div className="flex flex-col sm:flex-row gap-4 w-full justify-center lg:justify-start">
             <Link 
               href="/contact#connect"
-              className="bg-[#E3D0AD] text-[#131C2B] px-4 py-3 rounded-md font-sans font-medium text-[15px] hover:bg-[#d8c09a] transition-colors whitespace-nowrap text-center cursor-pointer flex-1 sm:flex-initial"
+              className="btn-premium-light px-6 py-3 rounded-md font-sans font-medium text-[15px] whitespace-nowrap text-center cursor-pointer flex-1 sm:flex-initial"
             >
               Schedule a Consultation
             </Link>
             <Link 
               href="/contact#connect"
-              className="bg-transparent border border-[#3C4045] text-[#E3D0AD] px-4 py-3 rounded-md font-sans font-medium text-[15px] hover:bg-white/10 transition-colors whitespace-nowrap text-center cursor-pointer flex-1 sm:flex-initial"
+              className="btn-premium-outline px-6 py-3 rounded-md font-sans font-medium text-[15px] whitespace-nowrap text-center cursor-pointer flex-1 sm:flex-initial"
             >
               Connect With Our Team
             </Link>

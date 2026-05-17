@@ -5,6 +5,7 @@ import FAQ from "@/components/FAQ";
 import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+import Link from "next/link";
 import { client } from "@/sanity/client";
 import PracticeAreasGrid from "@/components/PracticeAreasGrid";
 
@@ -117,9 +118,9 @@ export default async function PracticeAreasPage() {
             Reliable labour law and regulatory compliance support designed to help businesses manage workforce obligations, reduce risks, and ensure operational efficiency.
           </p>
           <div>
-            <button className="bg-[#A17755] text-white px-8 py-3.5 rounded-[4px] font-sans font-medium text-[15px] hover:bg-[#8F6F4E] transition-colors shadow-sm">
+            <Link href="/contact#connect" className="btn-premium px-8 py-3.5 rounded-md text-[15px] shadow-sm inline-flex items-center justify-center">
               Book Consultation
-            </button>
+            </Link>
           </div>
         </div>
 

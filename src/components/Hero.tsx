@@ -86,7 +86,7 @@ export default function Hero() {
             </p>
             <Link 
               href="/contact#connect"
-              className="btn-primary shadow-sm text-[15px] px-8 py-3.5 bg-[#A17755] hover:bg-[#8F6F4E] rounded-md cursor-pointer inline-flex items-center justify-center"
+              className="btn-premium shadow-sm text-[15px] px-8 py-3.5 rounded-md cursor-pointer inline-flex items-center justify-center"
             >
               Book Consultation
             </Link>

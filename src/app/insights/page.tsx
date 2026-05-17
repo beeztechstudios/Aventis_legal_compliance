@@ -61,9 +61,9 @@ export default async function InsightsPage() {
           <p className="section-description mb-2 text-left">
             Labour law updates, compliance guidance, and practical business insights designed to help organizations stay informed and compliant.
           </p>
-          <button className="bg-[#A17755] text-white px-8 py-3.5 rounded-md font-sans font-medium text-[15px] hover:bg-[#8F6F4E] transition-colors shadow-sm">
+          <Link href="/contact#connect" className="btn-premium px-8 py-3.5 rounded-md text-[15px] shadow-sm inline-flex items-center justify-center">
             Book Consultation
-          </button>
+          </Link>
         </div>
       </section>
 

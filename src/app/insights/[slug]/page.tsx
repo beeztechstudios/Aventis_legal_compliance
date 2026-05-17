@@ -61,7 +61,7 @@ export default async function BlogDetailsPage({
           </p>
           <Link 
             href="/insights" 
-            className="bg-[#A17755] text-white px-8 py-3.5 rounded-md font-sans font-medium text-[15px] hover:bg-[#8F6F4E] transition-colors shadow-sm"
+            className="btn-premium px-8 py-3.5 rounded-md text-[15px] shadow-sm"
           >
             Back to Insights
           </Link>
@@ -202,7 +202,7 @@ export default async function BlogDetailsPage({
                   />
                   <button 
                     type="submit" 
-                    className="w-full bg-[#A17755] hover:bg-[#8F6F4E] text-white font-sans font-medium text-[15px] py-3 rounded-sm transition-colors mb-5"
+                    className="btn-premium w-full py-3 rounded-sm text-[15px] mb-5"
                   >
                     Subscribe Now
                   </button>

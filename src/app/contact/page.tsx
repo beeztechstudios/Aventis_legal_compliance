@@ -90,7 +90,7 @@ export default function ContactPage() {
           <button
             type="button"
             onClick={() => setShowCalendly(true)}
-            className="bg-[#A17755] text-white px-8 py-3.5 rounded-md font-sans font-medium text-[15px] hover:bg-[#8F6F4E] transition-colors shadow-sm"
+            className="btn-premium shadow-sm text-[15px] px-8 py-3.5 rounded-md"
           >
             Book Consultation
           </button>
@@ -239,7 +239,7 @@ export default function ContactPage() {
               <div className="flex flex-col gap-4 mt-4">
                 <button
                   type="submit"
-                  className="w-full bg-[#A17755] text-white py-4 rounded-md font-sans font-medium text-[16px] hover:bg-[#8F6F4E] transition-colors"
+                  className="btn-premium w-full py-4 rounded-md text-[16px]"
                 >
                   Schedule a Consultation
                 </button>

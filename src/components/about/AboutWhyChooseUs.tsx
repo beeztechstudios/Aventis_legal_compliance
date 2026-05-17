@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function AboutWhyChooseUs() {
   const reasons = [
@@ -36,9 +37,9 @@ export default function AboutWhyChooseUs() {
               Practical, reliable, and business-focused compliance support.
             </p>
           </div>
-          <button className="btn-primary shadow-sm text-[14px] px-6 py-2.5">
+          <Link href="/contact#connect" className="btn-premium shadow-sm text-[14px] px-6 py-2.5 rounded-md inline-flex items-center justify-center">
             Book Consultation
-          </button>
+          </Link>
         </div>
 
         {/* Cards Grid */}
