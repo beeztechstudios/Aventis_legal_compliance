@@ -17,9 +17,10 @@ async function getPracticeAreas() {
   const query = `*[_type == "practiceArea"] | order(_createdAt asc) {
     title,
     "slug": slug.current,
-    excerpt
+    excerpt,
+    iconName
   }`;
-  
+
   try {
     const areas = await client.fetch(query);
     return areas;
@@ -110,9 +111,9 @@ export default async function PracticeAreasPage() {
       <section className="relative w-full px-6 md:px-12 flex flex-col xl:flex-row xl:items-center justify-between gap-4 md:gap-6 xl:gap-8 z-10 overflow-hidden">
         <div className="w-full xl:w-[48%] pt-12 md:pt-16 pb-0 flex flex-col z-10 relative">
           <h1 className="heading-hero mb-2">
-            <span className="block whitespace-nowrap">Labour Law &</span>
-            <span className="block whitespace-nowrap">Compliance Solutions</span>
-            <span className="block whitespace-nowrap">for Modern Businesses</span>
+            <span className="block md:whitespace-nowrap">Labour Law &</span>
+            <span className="block md:whitespace-nowrap">Compliance Solutions</span>
+            <span className="block md:whitespace-nowrap">for Modern Businesses</span>
           </h1>
           <p className="section-description heading-to-desc mb-4 max-w-[650px] text-justify">
             Reliable labour law and regulatory compliance support designed to help businesses manage workforce obligations, reduce risks, and ensure operational efficiency.

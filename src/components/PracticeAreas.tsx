@@ -7,7 +7,8 @@ async function getPracticeAreas() {
   const query = `*[_type == "practiceArea"] | order(_createdAt asc) {
     title,
     "slug": slug.current,
-    excerpt
+    excerpt,
+    iconName
   }`;
 
   try {

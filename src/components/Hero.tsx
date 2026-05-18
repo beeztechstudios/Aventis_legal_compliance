@@ -19,16 +19,21 @@ function TypewriterQuote() {
     const rect = el.getBoundingClientRect();
     const windowH = window.innerHeight;
 
-    // Section not yet visible — keep all words dim
-    if (rect.top >= windowH) {
+    // Reveal starts when the section is at least 50% scrolled into the viewport
+    const triggerDistance = rect.height * 0.5;
+
+    // If we haven't reached the 50% point yet, keep all words dim
+    if (windowH - rect.top < triggerDistance) {
       setVisibleCount(0);
       return;
     }
 
-    // Reveal starts the moment section enters the viewport.
-    // All words revealed by the time user scrolls ~60% through the section.
-    const distanceIn = windowH - rect.top;                  // px the section has entered the viewport
-    const revealOver = rect.height * 0.6 + windowH * 0.2;  // total px to scroll to fully reveal
+    // Distance scrolled past the 50% trigger point
+    const distanceIn = (windowH - rect.top) - triggerDistance;
+
+    // Decreased revealOver slightly to speed up the animation. 
+    // This requires less scrolling to reveal the entire quote (~5-6 words per scroll).
+    const revealOver = windowH * 0.8;
 
     const progress = Math.max(0, Math.min(1, distanceIn / revealOver));
     setVisibleCount(Math.round(progress * words.length));
@@ -74,8 +79,8 @@ export default function Hero() {
           {/* Left Side: Big Heading */}
           <div className="flex-1 xl:max-w-[65%]">
             <h1 className="heading-hero max-w-full mb-2">
-              <span className="block whitespace-nowrap">Simplifying Compliance.</span>
-              <span className="block whitespace-nowrap">Strengthening Governance.</span>
+              <span className="block md:whitespace-nowrap">Simplifying Compliance.</span>
+              <span className="block md:whitespace-nowrap">Strengthening Governance.</span>
             </h1>
           </div>
           {/* Right Side: Description and CTA */}
@@ -84,7 +89,7 @@ export default function Hero() {
               Labour law, regulatory compliance, and HR advisory solutions
               designed for modern, growing businesses across India.
             </p>
-            <Link 
+            <Link
               href="/contact#connect"
               className="btn-premium shadow-sm text-[15px] px-8 py-3.5 rounded-md cursor-pointer inline-flex items-center justify-center"
             >
