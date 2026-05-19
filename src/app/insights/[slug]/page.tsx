@@ -27,6 +27,21 @@ async function getBlogPost(slug: string) {
   }
 }
 
+async function getRelatedBlogs(currentSlug: string) {
+  const query = `
+    *[_type == "blogPost" && slug.current != $currentSlug] | order(publishedAt desc) [0...6] {
+      title,
+      "slug": slug.current
+    }
+  `;
+  try {
+    return await client.fetch(query, { currentSlug });
+  } catch (error) {
+    console.error("Failed to fetch related blogs:", error);
+    return [];
+  }
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -49,6 +64,7 @@ export default async function BlogDetailsPage({
 }) {
   const { slug } = await params;
   const post = await getBlogPost(slug);
+  const relatedBlogs = await getRelatedBlogs(slug);
 
   if (!post) {
     return (
@@ -78,9 +94,6 @@ export default async function BlogDetailsPage({
     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
   };
 
-  const authorName = "ACS Legal Team";
-  const authorImg = "/logo.svg"; // Using logo or a placeholder if actual author image is not present
-
   return (
     <main className="flex flex-col min-h-screen bg-[#FAF1E1]">
       <Navbar />
@@ -105,20 +118,6 @@ export default async function BlogDetailsPage({
               <p className="section-description heading-to-desc mb-2 md:mb-8 max-w-[500px]">
                 {post.excerpt || 'Key updates and recent developments in labour laws impacting workforce compliance, payroll obligations, and regulatory requirements for businesses across India.'}
               </p>
-              
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-[#131C2B]/10 flex items-center justify-center shrink-0 overflow-hidden relative">
-                  <Image src={authorImg} alt={authorName} fill className="object-cover" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="heading-card text-[#131C2B] leading-tight mb-1">
-                    {authorName}
-                  </span>
-                  <span className="font-sans text-[13px] md:text-[14px] text-[#131C2B]/60">
-                    Senior Partner, POSH Compliance Expert
-                  </span>
-                </div>
-              </div>
             </div>
 
           </div>
@@ -127,7 +126,7 @@ export default async function BlogDetailsPage({
         {/* Hero Image - Edge to Edge */}
         <div className="w-full relative aspect-video md:aspect-[21/9] overflow-hidden bg-[#131C2B]/5">
           <Image
-            src={post.featuredImage?.asset ? urlForImage(post.featuredImage)?.url() || '/blog-details-hero.png' : '/blog-details-hero.png'}
+            src={post.featuredImage?.asset ? urlForImage(post.featuredImage)?.url() || '/insights-blog-background.png' : '/insights-blog-background.png'}
             alt={post.title}
             fill
             className="object-cover"
@@ -146,74 +145,35 @@ export default async function BlogDetailsPage({
           {/* Right: Sidebar */}
           <aside className="w-full lg:w-[30%] lg:max-w-[340px] shrink-0 relative">
             <div className="sticky top-24 flex flex-col gap-4">
-              {/* Table of Contents Card */}
+
+
+              {/* Related Blogs Card */}
               <div className="w-full bg-white rounded-sm shadow-sm p-6 md:p-8 flex flex-col">
-                <h3 className="font-sans text-[15px] text-[#131C2B]/60 mb-2 font-medium">Table of Contents</h3>
+                <h3 className="font-sans text-[15px] text-[#131C2B]/60 mb-2 font-medium">Related Blogs</h3>
                 <div className="flex flex-col">
-                  <a href="#" className="py-4 font-sans text-[14px] text-[#131C2B]/80 hover:text-[#131C2B] transition-colors border-b border-[#131C2B]/10 last:border-b-0 leading-snug">
-                    Understanding Labour Law Updates
-                  </a>
-                  <a href="#" className="py-4 font-sans text-[14px] text-[#131C2B]/80 hover:text-[#131C2B] transition-colors border-b border-[#131C2B]/10 last:border-b-0 leading-snug">
-                    Payroll & Statutory Compliance
-                  </a>
-                  <a href="#" className="py-4 font-sans text-[14px] text-[#131C2B]/80 hover:text-[#131C2B] transition-colors border-b border-[#131C2B]/10 last:border-b-0 leading-snug">
-                    Workplace Governance & HR Policies
-                  </a>
-                  <a href="#" className="py-4 font-sans text-[14px] text-[#131C2B]/80 hover:text-[#131C2B] transition-colors border-b border-[#131C2B]/10 last:border-b-0 leading-snug">
-                    POSH Compliance Requirements
-                  </a>
-                  <a href="#" className="py-4 font-sans text-[14px] text-[#131C2B]/80 hover:text-[#131C2B] transition-colors border-b border-[#131C2B]/10 last:border-b-0 leading-snug">
-                    Regulatory Filings & Documentation
-                  </a>
-                  <a href="#" className="py-4 font-sans text-[14px] text-[#131C2B]/80 hover:text-[#131C2B] transition-colors border-b border-[#131C2B]/10 last:border-b-0 leading-snug">
-                    Common Compliance Challenges
-                  </a>
-                  <a href="#" className="py-4 font-sans text-[14px] text-[#131C2B]/80 hover:text-[#131C2B] transition-colors border-b border-[#131C2B]/10 last:border-b-0 leading-snug">
-                    Practical Recommendations
-                  </a>
-                </div>
-              </div>
-
-              {/* Decorative/Bookshelf Image */}
-              <div className="w-full relative aspect-[4/3] rounded-sm overflow-hidden bg-[#131C2B]/5 shadow-sm">
-                <Image 
-                  src="/stay-updated.png" 
-                  alt="Library Bookshelf" 
-                  fill 
-                  className="object-cover"
-                />
-              </div>
-
-              {/* Stay Updated Card */}
-              <div className="w-full bg-white rounded-sm shadow-sm p-6 md:p-8 flex flex-col">
-                <h4 className="heading-card mb-2 md:mb-3 leading-tight">
-                  Stay Updated Card
-                </h4>
-                <p className="font-sans text-[14px] text-[#131C2B]/80 leading-relaxed mb-6">
-                  Stay updated with labour law and compliance insights.
-                </p>
-                
-                <form className="w-full flex flex-col">
-                  <input 
-                    type="email" 
-                    placeholder="Email Address" 
-                    className="w-full px-4 py-3 mb-3 rounded-sm border border-[#131C2B]/10 font-sans text-[14px] text-[#131C2B] placeholder:text-[#131C2B]/50 focus:outline-none focus:border-[#A17755]"
-                    required
-                  />
-                  <button 
-                    type="submit" 
-                    className="btn-premium w-full py-3 rounded-sm text-[15px] mb-5"
-                  >
-                    Subscribe Now
-                  </button>
-                </form>
-
-                <div className="flex flex-col font-sans text-[13px] leading-relaxed">
-                  <span className="text-[#131C2B] font-medium">We respect your privacy.</span>
-                  <span className="text-[#131C2B]/50">Unsubscribe anytime.</span>
+                  {relatedBlogs.length > 0 ? (
+                    relatedBlogs.map((related: { title: string; slug: string }) => {
+                      const words = related.title.split(' ');
+                      const truncated = words.length > 6
+                        ? words.slice(0, 6).join(' ') + '...'
+                        : related.title;
+                      return (
+                        <Link
+                          key={related.slug}
+                          href={`/insights/${related.slug}`}
+                          className="py-4 font-sans text-[14px] text-[#131C2B]/80 hover:text-[#131C2B] transition-colors border-b border-[#131C2B]/10 last:border-b-0 leading-snug"
+                        >
+                          {truncated}
+                        </Link>
+                      );
+                    })
+                  ) : (
+                    <p className="py-4 font-sans text-[13px] text-[#131C2B]/50">No related blogs found.</p>
+                  )}
                 </div>
               </div>
             </div>
+
           </aside>
         </section>
       </article>

@@ -45,10 +45,10 @@ export default function Footer() {
               {/* Inners */}
               <div className="flex flex-col gap-4">
                 <h5 className="text-[#A17755] font-sans text-[13px] sm:text-[15px] mb-1 font-medium uppercase tracking-wide">Services</h5>
-                <Link href="#" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Labour Law Compliance</Link>
-                <Link href="#" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">POSH Compliance</Link>
-                <Link href="#" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Payroll Compliance</Link>
-                <Link href="#" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Liaison Support</Link>
+                <Link href="/practice-areas/labour-law-advisory-compliance" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Labour Law Compliance</Link>
+                <Link href="/practice-areas/posh-compliance-and-investigations" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">POSH Compliance</Link>
+                <Link href="/practice-areas/payroll-and-statutory-compliances" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Payroll Compliance</Link>
+                <Link href="/practice-areas/labour-department-liaison" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Liaison Support</Link>
               </div>
 
               {/* Utility */}

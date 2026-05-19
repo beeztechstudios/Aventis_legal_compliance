@@ -34,7 +34,7 @@ export default function PracticeAreasGrid({ areas }: { areas: PracticeArea[] }) 
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
       {areas.map((area, idx) => {
         const isActive = activeIdx === idx;
-        const icon = area.iconName ? `/${area.iconName}` : iconMap[area.slug] || "/labour-law-advisory.svg";
+        const icon = area.iconName ? `/practice_area_icons/${area.iconName}` : iconMap[area.slug] || "/practice_area_icons/labour-law-advisory.svg";
         
         return (
           <div
