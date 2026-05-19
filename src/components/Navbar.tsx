@@ -37,64 +37,66 @@ export default function Navbar() {
   }, [lastScrollY]);
 
   return (
-    <div 
-      className={`w-full flex flex-col sticky top-0 z-50 bg-[#FAF1E1] transition-transform duration-300 ${
-        isVisible ? 'translate-y-0' : '-translate-y-full'
-      }`}
-    >
-      {/* Top Banner — hidden on mobile */}
-      <div className="hidden md:flex w-full bg-[#CBB283] py-2 items-center justify-center">
-        <p className="text-[#131C2B] text-[13px] md:text-sm font-medium flex items-center gap-2 text-center px-4">
-          <BookOpen className="w-4 h-4 opacity-70 shrink-0" />
-          The Importance of Timely Compliance in Labour Law &amp; Regulatory Obligations
-        </p>
+    <>
+      <div 
+        className={`w-full flex flex-col sticky top-0 z-50 bg-beige transition-transform duration-300 ${
+          isVisible ? 'translate-y-0' : '-translate-y-full'
+        }`}
+      >
+        {/* Top Banner — hidden on mobile & tablet */}
+        <div className="hidden lg:flex w-full bg-[#CBB283] py-2 items-center justify-center">
+          <p className="text-[#131C2B] text-[13px] md:text-sm font-medium flex items-center gap-2 text-center px-4">
+            <BookOpen className="w-4 h-4 opacity-70 shrink-0" />
+            The Importance of Timely Compliance in Labour Law &amp; Regulatory Obligations
+          </p>
+        </div>
+
+        {/* Main Navbar */}
+        <nav className="flex items-center justify-between px-6 lg:px-12 py-6 w-full relative">
+          {/* Logo Area */}
+          <div className="flex items-center gap-4">
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/logo.svg"
+                alt="Aventis Compliance Solutions"
+                width={160}
+                height={56}
+                className="h-12 lg:h-14 w-auto object-contain"
+              />
+            </Link>
+          </div>
+
+          {/* Desktop Links */}
+          <div className="hidden lg:flex items-center space-x-10 text-[15px] font-sans text-[#131C2B]">
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="hover:opacity-70 transition-opacity">
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Mobile Burger Button */}
+          <button
+            className="lg:hidden p-1 text-[#131C2B] hover:opacity-70 transition-opacity"
+            onClick={() => setMenuOpen((prev) => !prev)}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          >
+            {menuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+          </button>
+        </nav>
       </div>
 
-      {/* Main Navbar */}
-      <nav className="flex items-center justify-between px-6 md:px-12 py-6 w-full relative">
-        {/* Logo Area */}
-        <div className="flex items-center gap-4">
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/logo.svg"
-              alt="Aventis Compliance Solutions"
-              width={160}
-              height={56}
-              className="h-12 md:h-14 w-auto object-contain"
-            />
-          </Link>
-        </div>
-
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center space-x-10 text-[15px] font-sans text-[#131C2B]">
-          {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="hover:opacity-70 transition-opacity">
-              {link.label}
-            </Link>
-          ))}
-        </div>
-
-        {/* Mobile Burger Button */}
-        <button
-          className="md:hidden p-1 text-[#131C2B] hover:opacity-70 transition-opacity"
-          onClick={() => setMenuOpen((prev) => !prev)}
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-        >
-          {menuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
-        </button>
-      </nav>
-
-      {/* Mobile Drawer */}
+      {/* Mobile/Tablet Drawer */}
       {menuOpen && (
         <>
           {/* Overlay */}
           <div
-            className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm md:hidden"
+            className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm lg:hidden"
             onClick={() => setMenuOpen(false)}
           />
 
           {/* Menu Panel */}
-          <div className="fixed top-0 right-0 z-50 h-full w-72 bg-[#FAF1E1] shadow-2xl flex flex-col md:hidden animate-[slideIn_0.25s_ease-out]">
+          <div className="fixed top-0 right-0 z-50 h-full w-72 bg-beige shadow-2xl flex flex-col lg:hidden animate-[slideIn_0.25s_ease-out]">
             {/* Close button */}
             <div className="flex items-center justify-between px-6 py-6 border-b border-[#CBB283]/40">
               <Image
@@ -139,7 +141,6 @@ export default function Navbar() {
           </div>
         </>
       )}
-
-    </div>
+    </>
   );
 }
