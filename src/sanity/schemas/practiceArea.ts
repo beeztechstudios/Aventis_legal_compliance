@@ -26,6 +26,13 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'iconName',
+      title: 'Icon Name',
+      type: 'string',
+      group: 'content',
+      description: 'The exact filename of the icon in the public folder (e.g., "my-icon.svg"). Do not include the leading slash.',
+    }),
+    defineField({
       name: 'tagline',
       title: 'Tagline',
       type: 'string',

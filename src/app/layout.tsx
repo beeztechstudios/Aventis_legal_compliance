@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { defaultMetadata } from "@/lib/siteMeta";
+import { DisclaimerPopup } from "@/components/DisclaimerPopup";
 import "./globals.css";
 
 export const metadata: Metadata = defaultMetadata;
@@ -18,6 +19,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased min-h-screen flex flex-col font-sans bg-[#FAF1E1]">
         {children}
+        <DisclaimerPopup />
       </body>
     </html>
   );

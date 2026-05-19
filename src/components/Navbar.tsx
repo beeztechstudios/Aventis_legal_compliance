@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, BookOpen } from 'lucide-react';
 
 const navLinks = [
@@ -16,9 +16,32 @@ const navLinks = [
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   return (
-    <div className="w-full flex flex-col">
+    <div 
+      className={`w-full flex flex-col sticky top-0 z-50 bg-[#FAF1E1] transition-transform duration-300 ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
       {/* Top Banner — hidden on mobile */}
       <div className="hidden md:flex w-full bg-[#CBB283] py-2 items-center justify-center">
         <p className="text-[#131C2B] text-[13px] md:text-sm font-medium flex items-center gap-2 text-center px-4">
