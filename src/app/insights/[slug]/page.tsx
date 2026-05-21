@@ -4,11 +4,13 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import Navbar from "@/components/Navbar";
 import FAQ from "@/components/FAQ";
-import CallToAction from "@/components/CallToAction";
+// import CallToAction from "@/components/CallToAction";
+import AboutCTA from "@/components/about/AboutCTA";
 import Footer from "@/components/Footer";
 import { SanityContentRenderer } from "@/components/SanityContent";
 import { client } from '@/sanity/client';
 import { urlForImage } from '@/sanity/image';
+import PageAnimate from "@/components/PageAnimate";
 
 export const revalidate = 60; // revalidate every 60 seconds
 
@@ -98,13 +100,14 @@ export default async function BlogDetailsPage({
     <main className="flex flex-col min-h-screen bg-[#FAF1E1]">
       <Navbar />
 
-      <article className="w-full">
-        {/* --- Hero Section --- */}
-        <section className="px-6 md:px-12 pt-12 md:pt-24 pb-10 md:pb-16 w-full">
-          <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-8 lg:gap-24">
-            
-            {/* Left: Tag & Title */}
-            <div className="flex-1 lg:max-w-[60%]">
+      <PageAnimate>
+        <article className="w-full">
+          {/* --- Hero Section --- */}
+          <section className="px-6 md:px-12 pt-12 md:pt-24 pb-10 md:pb-16 w-full">
+            <div className="hero-content flex flex-col lg:flex-row lg:items-start justify-between gap-8 lg:gap-24">
+              
+              {/* Left: Tag & Title */}
+              <div className="flex-1 lg:max-w-[60%]">
               <div className="font-sans text-[14px] md:text-[15px] text-[#A17755] font-medium mb-6">
                 {post.categoryName || 'Featured Article'} <span className="text-[#131C2B]/30 mx-2">|</span> {formatDate(post.publishedAt)} <span className="text-[#131C2B]/30 mx-2">|</span> {post.readTime || '5 min read'}
               </div>
@@ -124,9 +127,9 @@ export default async function BlogDetailsPage({
         </section>
 
         {/* Hero Image - Edge to Edge */}
-        <div className="w-full relative aspect-video md:aspect-[21/9] overflow-hidden bg-[#131C2B]/5">
+        <div className="hero-image w-full relative aspect-video md:aspect-[21/9] overflow-hidden bg-[#131C2B]/5">
           <Image
-            src={post.featuredImage?.asset ? urlForImage(post.featuredImage)?.url() || '/insights-blog-background.png' : '/insights-blog-background.png'}
+            src={post.featuredImage?.asset ? urlForImage(post.featuredImage)?.url() || '/insights-blog-background.webp' : '/insights-blog-background.webp'}
             alt={post.title}
             fill
             className="object-cover"
@@ -178,9 +181,10 @@ export default async function BlogDetailsPage({
         </section>
       </article>
 
-      {/* Global Bottom Components */}
-      <FAQ />
-      <CallToAction />
+        <FAQ />
+        {/* <CallToAction /> */}
+        <AboutCTA />
+      </PageAnimate>
       <Footer />
     </main>
   );

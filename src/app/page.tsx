@@ -8,8 +8,10 @@ import IndustriesWeServe from "@/components/IndustriesWeServe";
 import HowWeWork from "@/components/HowWeWork";
 import OurProfessionals from "@/components/OurProfessionals";
 import FAQ from "@/components/FAQ";
-import CallToAction from "@/components/CallToAction";
+// import CallToAction from "@/components/CallToAction";
+import AboutCTA from "@/components/about/AboutCTA";
 import Footer from "@/components/Footer";
+import PageAnimate from "@/components/PageAnimate";
 
 export const metadata: Metadata = homeMetadata;
 
@@ -18,14 +20,17 @@ export default async function Home() {
   return (
     <main className="flex flex-col min-h-screen bg-[#FAF1E1]">
       <Navbar />
-      <Hero />
-      <PracticeAreas />
-      <WhyChooseUs />
-      <IndustriesWeServe />
-      <HowWeWork />
-      <OurProfessionals variant="home" />
-      <FAQ />
-      <CallToAction />
+      <PageAnimate>
+        <Hero />
+        <PracticeAreas />
+        <WhyChooseUs />
+        <IndustriesWeServe />
+        <HowWeWork />
+        <OurProfessionals variant="home" />
+        <FAQ />
+        {/* <CallToAction /> */}
+        <AboutCTA />
+      </PageAnimate>
       <Footer />
     </main>
   );

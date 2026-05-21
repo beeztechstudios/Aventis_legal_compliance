@@ -10,25 +10,25 @@ const features = [
   {
     title: "End-to-End Compliance",
     description: "We provide complete labour law and regulatory compliance support, covering both central and state requirements. From registrations to ongoing management, we ensure businesses stay compliant efficiently.",
-    image: "/end-to-end-compliance.png",
+    image: "/end-to-end-compliance.webp",
     bgColor: "bg-[#D6E0EA]", // Light blue
   },
   {
     title: "Customized Solutions",
     description: "Our compliance solutions are tailored to your industry, workforce structure, and business needs, ensuring practical and effective implementation.",
-    image: "/customized-solutions.png",
+    image: "/customized-solutions.webp",
     bgColor: "bg-[#FEE8C5]", // Light peach
   },
   {
     title: "Risk Mitigation Approach",
     description: "We identify compliance gaps and address them proactively to reduce legal risks, improve efficiency, and support secure business operations.",
-    image: "/risk-mitigation-approach.png",
+    image: "/risk-mitigation-approach.webp",
     bgColor: "bg-[#D0F3E0]", // Light green
   },
   {
     title: "Strong Liaison Support",
     description: "We manage inspections, notices, and coordination with labour authorities in a structured and professional manner, ensuring smooth processes and minimal business disruption.",
-    image: "/strong-liaison-support.png",
+    image: "/strong-liaison-support.webp",
     bgColor: "bg-[#E8E1E6]", // Light purple
   }
 ];

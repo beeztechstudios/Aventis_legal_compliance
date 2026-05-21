@@ -52,24 +52,24 @@ export default function PracticeAreasGrid({ areas }: { areas: PracticeArea[] }) 
                 alt={area.title}
                 width={60}
                 height={60}
-                className={`transition-all duration-500 group-hover:brightness-100 group-hover:invert-0 ${isActive ? 'brightness-100' : 'brightness-0'}`}
+                className={`w-[60px] h-[60px] object-contain transition-all duration-500 group-hover:brightness-100 group-hover:invert-0 ${isActive ? 'brightness-100' : 'brightness-0'}`}
               />
             </div>
 
             {/* Text block */}
-            <div className={`relative z-10 mt-auto flex flex-col transition-transform duration-500 ease-in-out group-hover:-translate-y-28 ${isActive ? '-translate-y-28' : 'translate-y-0'}`}>
-              <h3 className={`heading-sub mb-3 leading-[1.3] whitespace-pre-line transition-colors duration-500 group-hover:text-[#FDEACB] ${isActive ? 'text-[#FDEACB]' : 'text-[#121C2A]'}`}>
+            <div className={`relative z-10 mt-auto flex flex-col transition-transform duration-500 ease-in-out group-hover:-translate-y-16 md:group-hover:-translate-y-20 xl:group-hover:-translate-y-16 ${isActive ? '-translate-y-16 md:-translate-y-20 xl:-translate-y-16' : 'translate-y-0'}`}>
+              <h3 className={`heading-sub !text-[18px] lg:!text-[16px] xl:!text-[22px] h-[52px] xl:h-[64px] mb-1.5 leading-[1.3] whitespace-pre-line line-clamp-2 transition-colors duration-500 group-hover:text-[#FDEACB] ${isActive ? 'text-[#FDEACB]' : 'text-[#121C2A]'}`}>
                 {area.title}
               </h3>
-              <p className={`text-[13px] md:text-[14px] leading-relaxed font-sans line-clamp-3 transition-colors duration-500 group-hover:text-[#FDEACB]/80 ${isActive ? 'text-[#FDEACB]/80' : 'text-[#121C2A]/70'}`}>
+              <p className={`text-[13px] md:text-[14px] h-[48px] leading-relaxed font-sans line-clamp-2 transition-colors duration-500 group-hover:text-[#FDEACB]/80 ${isActive ? 'text-[#FDEACB]/80' : 'text-[#121C2A]/70'}`}>
                 {area.excerpt}
               </p>
             </div>
 
             {/* Learn More */}
-            <div className={`absolute bottom-8 md:bottom-10 left-8 md:left-10 z-10 transition-all duration-400 ease-in-out delay-150 group-hover:opacity-100 ${isActive ? 'opacity-100' : 'opacity-0'}`}>
-              <Link href={`/practice-areas/${area.slug}`} className="bg-white text-[#A57858] px-5 py-2 text-[13px] font-sans font-medium hover:bg-[#FDEACB] hover:text-[#121C2A] transition-colors border-none inline-block">
-                Learn more
+            <div className={`absolute bottom-8 md:bottom-10 left-8 md:left-10 z-10 transition-all duration-500 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+              <Link href={`/practice-areas/${area.slug}`} className="bg-white text-[#A57858] px-5 py-2 text-[13px] font-sans font-medium hover:bg-[#FDEACB] hover:text-[#121C2A] transition-colors border-none inline-block rounded-sm">
+                Read More
               </Link>
             </div>
           </div>

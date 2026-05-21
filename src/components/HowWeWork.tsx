@@ -9,25 +9,25 @@ const steps = [
     number: "1",
     title: "Understanding Requirements",
     description: "We begin by gaining a comprehensive understanding of your business operations, workforce structure, and internal processes. This allows us to identify key compliance requirements, assess operational challenges, and define a clear and structured scope of work aligned with your business objectives.",
-    image: "/understanding-requirements-image.png"
+    image: "/understanding-requirements-image.webp"
   },
   {
     number: "2",
     title: "Compliance Assessment",
     description: "We conduct a detailed evaluation of applicable labour laws and regulatory obligations relevant to your business. Our assessment focuses on identifying compliance gaps, potential risks, and critical areas that require immediate and structured attention to ensure full regulatory alignment.",
-    image: "/compliance-assesment-image.png"
+    image: "/compliance-assesment-image.webp"
   },
   {
     number: "3",
     title: "Implementation & Execution",
     description: "We implement practical and well-structured compliance solutions, including registrations, filings, documentation, and process alignment. Our team ensures accurate execution, timely completion, and adherence to all statutory requirements across your operations.",
-    image: "/implementation-image.png"
+    image: "/implementation-image.webp"
   },
   {
     number: "4",
     title: "Ongoing Support",
     description: "We provide continuous monitoring, updates, and advisory support to ensure your business remains aligned with evolving regulations. Our proactive approach helps maintain long-term compliance, reduce risks, and support smooth and uninterrupted operations.",
-    image: "/ongoing-support-image.png"
+    image: "/ongoing-support-image.webp"
   }
 ];
 
@@ -62,7 +62,7 @@ export default function HowWeWork() {
               A structured approach to ensure seamless compliance and efficient execution.
             </p>
           </div>
-          <div className="flex 2xl:hidden gap-2 self-start md:self-auto justify-start">
+          <div className="flex xl:hidden gap-2 self-start md:self-auto justify-start">
             <button
               onClick={scrollLeft}
               className="w-8 h-8 md:w-10 md:h-10 bg-[#A17755] flex items-center justify-center text-white hover:bg-[#8e6e4d] transition-colors shadow-sm rounded-sm"
@@ -80,7 +80,7 @@ export default function HowWeWork() {
 
         <div
           ref={scrollContainerRef}
-          className="grid grid-flow-col auto-cols-[85vw] md:auto-cols-[65vw] lg:auto-cols-[calc(46.75%-1rem)] 2xl:grid-flow-row 2xl:grid-cols-4 gap-4 overflow-x-auto 2xl:overflow-x-visible snap-x snap-mandatory 2xl:snap-none w-full pb-8 2xl:pb-0 scrollbar-hidden"
+          className="grid grid-flow-col auto-cols-[85vw] md:auto-cols-[65vw] lg:auto-cols-[calc(46.75%-1rem)] xl:grid-flow-row xl:grid-cols-4 gap-4 overflow-x-auto xl:overflow-x-visible snap-x snap-mandatory xl:snap-none w-full pb-8 xl:pb-0 scrollbar-hidden"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {steps.map((step, idx) => {
@@ -114,10 +114,10 @@ export default function HowWeWork() {
                   {/* Text content */}
                   <div
                     className={`flex flex-col justify-end h-full transition-all duration-500
-                      ${isActive ? 'p-4 md:p-5' : 'p-4 md:p-5 group-hover:p-4 md:group-hover:p-5'}`}
+                      ${isActive ? 'p-4 md:p-5 xl:p-4 2xl:p-5' : 'p-4 md:p-5 xl:p-4 2xl:p-5 group-hover:p-4 md:group-hover:p-5 xl:group-hover:p-4 2xl:group-hover:p-5'}`}
                   >
                     <h3
-                      className={`font-serif font-medium text-white transition-all duration-500 text-[18px] md:text-[24px] lg:text-[24px] xl:text-[28px] 2xl:text-[22px]
+                      className={`font-serif font-medium text-white transition-all duration-500 text-[18px] md:text-[24px] lg:text-[24px] xl:text-[19px] 2xl:text-[22px]
                         ${isActive ? 'mb-2' : 'mb-0 group-hover:mb-2'}`}
                     >
                       {step.title}
@@ -129,7 +129,7 @@ export default function HowWeWork() {
                     >
                       <div className="overflow-hidden">
                         <p
-                          className={`text-white/70 text-[12px] md:text-[16px] lg:text-[17px] xl:text-[18px] 2xl:text-[15px] leading-[1.5] font-sans transition-opacity duration-500 delay-150
+                          className={`text-white/70 text-[12px] md:text-[16px] lg:text-[17px] xl:text-[13.5px] 2xl:text-[15px] leading-[1.5] font-sans transition-opacity duration-500 delay-150
                             ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
                         >
                           {step.description}

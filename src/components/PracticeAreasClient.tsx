@@ -42,7 +42,7 @@ export default function PracticeAreasClient({ areas }: { areas: PracticeArea[] }
       <div className="px-6 md:px-12 w-full">
         <div
           ref={scrollRef}
-          className="flex gap-8 lg:gap-16 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-8"
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-8"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {areas.map((area, idx) => (
@@ -50,18 +50,18 @@ export default function PracticeAreasClient({ areas }: { areas: PracticeArea[] }
               key={idx}
               className="min-w-[240px] md:min-w-[280px] xl:min-w-[calc((100%-48px)/4)] xl:max-w-[calc((100%-48px)/4)] snap-start flex flex-col cursor-pointer"
             >
-              <h3 className="heading-sub mb-2 md:mb-4">
+              <h3 className="heading-sub mb-2 md:mb-4 !text-[18px] md:!text-[26px]">
                 {area.title.split(" ").map((word, i) => (
                   <span key={i}>{word} </span>
                 ))}
               </h3>
-              <p className="text-[#131C2B]/80 text-[13px] md:text-sm leading-relaxed mb-4 md:mb-6 font-sans">
+              <p className="text-[#131C2B]/80 text-[13px] md:text-sm leading-relaxed mb-4 md:mb-6 font-sans line-clamp-2">
                 {area.excerpt}
               </p>
               <div className="mt-auto">
                 <Link
                   href={`/practice-areas/${area.slug}`}
-                  className="text-[#A17755] text-xs font-sans font-medium hover:text-[#131C2B] transition-colors flex items-center gap-2 group"
+                  className="text-[#A17755] text-xs md:text-sm lg:text-[15px] font-sans font-medium hover:text-[#131C2B] transition-colors flex items-center gap-2 group"
                 >
                   <CornerDownRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                   Learn more

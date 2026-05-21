@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
+import PageAnimate from "@/components/PageAnimate";
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Aventis Compliance Solutions',
@@ -13,8 +14,11 @@ export default function PrivacyPolicyPage() {
     <main className="flex flex-col min-h-screen bg-[#FAF1E1]">
       <Navbar />
 
-      <section className="px-6 md:px-12 py-16 md:py-24 max-w-4xl mx-auto w-full">
-        <h1 className="heading-hero mb-12">Privacy Policy</h1>
+      <PageAnimate>
+        <section className="px-6 md:px-12 py-16 md:py-24 max-w-4xl mx-auto w-full">
+          <div className="hero-content">
+            <h1 className="heading-hero mb-12">Privacy Policy</h1>
+          </div>
 
         <div className="flex flex-col space-y-12">
           {/* Section 1 */}
@@ -182,6 +186,7 @@ export default function PrivacyPolicyPage() {
 
         </div>
       </section>
+      </PageAnimate>
 
       <Footer />
     </main>

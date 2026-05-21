@@ -8,7 +8,7 @@ const professionals = [
       'A legal professional advises on labour and employment law matters, payroll and statutory compliances, HR audits, POSH compliances, workplace governance, taxation, and allied regulatory matters through business-oriented approach with focused on operational efficiency and effective risk mitigation.',
     homeDescription:
       '"Strong businesses are built on strong compliance. When ethics and law go hand in hand, growth follows naturally."',
-    image: '/Isha-Wadhwa.png',
+    image: '/Isha-Wadhwa.webp',
     layout: 'image-left',
   },
   {
@@ -18,7 +18,7 @@ const professionals = [
       'A legal and compliance professional with over a decade of experience in labour and employment laws matters. He is specialized in advising client in Labour inspection, employment documentation, HR Audit, POSH Compliance & training and awareness sessions and represent the clients before labour court and industrial tribunals.',
     homeDescription:
       '"Compliance is not just about avoiding penalties, it\'s about building a workplace with trust, transparency, and responsibility."',
-    image: '/Manan-Oberoi.png',
+    image: '/Manan-Oberoi.webp',
     layout: 'image-right',
   },
 ];

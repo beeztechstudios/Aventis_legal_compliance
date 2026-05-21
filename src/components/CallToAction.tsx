@@ -12,7 +12,7 @@ export default function CallToAction() {
       {/* Background Image/Pattern */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
-          src="/start-free-consultation-background.png"
+          src="/start-free-consultation-background.webp"
           alt="Background Pattern"
           fill
           className="object-cover object-center"

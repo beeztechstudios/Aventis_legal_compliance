@@ -7,7 +7,7 @@ export default function AboutCTA() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
         <Image
-          src="/need-reliable-compliance-background.png"
+          src="/need-reliable-compliance-background.webp"
           alt="Background"
           fill
           className="object-cover object-center"
@@ -18,7 +18,7 @@ export default function AboutCTA() {
         
         {/* Left Side: Heading */}
         <div className="flex-[3]">
-          <h2 className="font-serif text-[32px] md:text-[48px] lg:text-[64px] xl:text-[72px] text-white leading-[1.1]">
+          <h2 className="font-serif text-[32px] md:text-[48px] lg:text-[56px] xl:text-[72px] text-white leading-[1.1]">
             Need Reliable<br />Compliance Support?
           </h2>
         </div>
