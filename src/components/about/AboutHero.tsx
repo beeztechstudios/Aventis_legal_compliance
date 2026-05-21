@@ -5,7 +5,7 @@ export default function AboutHero() {
   return (
     <section className="w-full px-6 md:px-12 bg-[#FAF1E1] relative flex flex-col xl:flex-row xl:items-center">
       {/* Left Side: Content */}
-      <div className="w-full xl:w-1/2 pt-12 md:pt-16 pb-8 md:pb-12 xl:py-24 flex flex-col justify-center relative z-10 xl:pr-12">
+      <div className="hero-content w-full xl:w-1/2 pt-12 md:pt-16 pb-8 md:pb-12 xl:py-24 flex flex-col justify-center relative z-10 xl:pr-12">
         <h1 className="heading-hero mb-2 leading-tight">
           <span className="block xl:whitespace-nowrap">About Aventis</span>
           <span className="block xl:whitespace-nowrap">Compliance Solutions</span>
@@ -19,9 +19,9 @@ export default function AboutHero() {
       </div>
 
       {/* Right Side: Image */}
-      <div className="w-full xl:w-1/2 pb-12 xl:pb-0 flex items-center justify-center xl:justify-end xl:pl-8">
+      <div className="hero-image w-full xl:w-1/2 pb-12 xl:pb-0 flex items-center justify-center xl:justify-end xl:pl-8">
         <Image
-          src="/about-hero.png"
+          src="/about-hero.webp"
           alt="Law Office"
           width={1000}
           height={1200}

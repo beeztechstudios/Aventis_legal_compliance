@@ -7,7 +7,8 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import Navbar from "@/components/Navbar";
 import FAQ from "@/components/FAQ";
-import CallToAction from "@/components/CallToAction";
+// import CallToAction from "@/components/CallToAction";
+import AboutCTA from "@/components/about/AboutCTA";
 import Footer from "@/components/Footer";
 
 export default function ContactPage() {
@@ -94,7 +95,7 @@ export default function ContactPage() {
           >
             Book Consultation
           </button>
-          <p className="text-[#131C2B]/60 text-xs mt-6 font-sans">
+          <p className="text-[#131C2B]/60 text-xs md:text-[15px] mt-6 font-sans">
             Located in <span className="font-semibold text-[#131C2B]">India.</span>
           </p>
         </div>
@@ -102,7 +103,7 @@ export default function ContactPage() {
         {/* Right Side: Image */}
         <div className="w-full xl:w-[50%] h-[280px] sm:h-[340px] md:h-[420px] lg:h-[480px] xl:h-[520px] 2xl:h-[580px] relative hero-image z-10 rounded-lg overflow-hidden">
           <Image
-            src="/contact.png"
+            src="/contact.webp"
             alt="Contact Hero Image"
             fill
             className="object-cover object-center"
@@ -259,7 +260,8 @@ export default function ContactPage() {
       </section>
 
       <FAQ />
-      <CallToAction />
+      {/* <CallToAction /> */}
+      <AboutCTA />
       <Footer />
 
       {showCalendly && calendlyUrl ? (

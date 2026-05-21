@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useEffect, useRef, useState, useCallback } from 'react';
 
 const QUOTE =
-  'With a focus on labour law compliance, we support businesses across India with practical solutions for governance and regulatory needs.';
+  '"With a focus on labour law compliance, we support businesses across India with practical solutions for governance and regulatory needs."';
 
 function TypewriterQuote() {
   const words = QUOTE.split(' ');
@@ -75,7 +75,7 @@ export default function Hero() {
     <div className="w-full flex flex-col">
       <section className="px-6 md:px-12 pt-10 md:pt-16 pb-0 md:pb-12 w-full overflow-hidden">
         {/* Top Text Section (Side by Side) */}
-        <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-2 md:gap-4 xl:gap-24 mb-8">
+        <div className="hero-content flex flex-col xl:flex-row xl:items-center justify-between gap-2 md:gap-4 xl:gap-24 mb-8">
           {/* Left Side: Big Heading */}
           <div className="flex-1 xl:max-w-[65%]">
             <h1 className="heading-hero max-w-full mb-2">
@@ -95,7 +95,7 @@ export default function Hero() {
             >
               Book Consultation
             </Link>
-            <p className="text-[#131C2B]/60 text-xs mt-6 font-sans">
+            <p className="text-[#131C2B]/60 text-xs md:text-[15px] mt-6 font-sans">
               Located in <span className="font-semibold text-[#131C2B]">India.</span>
             </p>
           </div>
@@ -103,9 +103,9 @@ export default function Hero() {
       </section>
 
       {/* Full Width & Height Visual — natural aspect ratio, no cropping */}
-      <div className="w-full">
+      <div className="w-full hero-image overflow-hidden">
         <Image
-          src="/hero-section.png"
+          src="/hero-section.webp"
           alt="Business meeting"
           width={1920}
           height={1080}

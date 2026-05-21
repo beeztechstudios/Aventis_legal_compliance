@@ -4,11 +4,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from "@/components/Navbar";
 import FAQ from "@/components/FAQ";
-import CallToAction from "@/components/CallToAction";
+// import CallToAction from "@/components/CallToAction";
+import AboutCTA from "@/components/about/AboutCTA";
 import Footer from "@/components/Footer";
 import { client } from '@/sanity/client';
 import { urlForImage } from '@/sanity/image';
 import { insightsMetadata } from '@/lib/siteMeta';
+import PageAnimate from "@/components/PageAnimate";
 
 export const metadata: Metadata = insightsMetadata;
 
@@ -49,14 +51,15 @@ export default async function InsightsPage() {
   const remainingPosts = sanityPosts?.slice(1) || [];
 
   const featuredImgUrl = featuredPost?.featuredImage ? urlForImage(featuredPost.featuredImage)?.url() : null;
-  const featuredImg = featuredImgUrl || "/insights-blog-background.png";
+  const featuredImg = featuredImgUrl || "/insights-blog-background.webp";
 
   return (
     <main className="flex flex-col min-h-screen bg-[#FAF1E1]">
       <Navbar />
 
-      {/* Header Section */}
-      <section className="px-6 md:px-12 pt-10 md:pt-16 pb-0 w-full flex flex-col xl:flex-row justify-between items-start xl:items-center gap-2 md:gap-6 xl:gap-24">
+      <PageAnimate>
+        {/* Header Section */}
+        <section className="hero-content px-6 md:px-12 pt-10 md:pt-16 pb-0 w-full flex flex-col xl:flex-row justify-between items-start xl:items-center gap-2 md:gap-6 xl:gap-24">
         <h1 className="heading-hero flex-1 xl:max-w-[65%]">
           Resources & Insights
         </h1>
@@ -125,7 +128,7 @@ export default async function InsightsPage() {
             <div className="absolute right-[11%] top-[50%] -translate-y-1/2 w-[46%] aspect-square z-10 pointer-events-none opacity-60">
               <Image src="/insights-vector.svg" alt="Decorative rings" fill className="object-contain" />
             </div>
-            <div className="absolute right-[4%] top-[6%] w-[40%] h-[88%] rounded-[0.8cqw] overflow-hidden shadow-2xl z-30 bg-white/5">
+            <div className="hero-image absolute right-[4%] top-[6%] w-[40%] h-[88%] rounded-[0.8cqw] overflow-hidden shadow-2xl z-30 bg-white/5">
               <Image
                 src={featuredImg}
                 alt={featuredPost.title}
@@ -143,7 +146,7 @@ export default async function InsightsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-x-10 md:gap-y-16">
           {remainingPosts.map((post: any, idx: number) => {
             const postImgUrl = post.featuredImage ? urlForImage(post.featuredImage)?.url() : null;
-            const postImg = postImgUrl || "/insights-blog-background.png";
+            const postImg = postImgUrl || "/insights-blog-background.webp";
 
             return (
               <Link href={`/insights/${post.slug}`} key={post._id} className="group flex flex-col cursor-pointer">
@@ -179,8 +182,10 @@ export default async function InsightsPage() {
         </div>
       </section>
 
-      <FAQ />
-      <CallToAction />
+        <FAQ />
+        {/* <CallToAction /> */}
+        <AboutCTA />
+      </PageAnimate>
       <Footer />
     </main>
   );

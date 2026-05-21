@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { Menu, X, BookOpen } from 'lucide-react';
 
 const navLinks = [
@@ -15,6 +16,7 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -52,7 +54,7 @@ export default function Navbar() {
         </div>
 
         {/* Main Navbar */}
-        <nav className="flex items-center justify-between px-6 lg:px-12 py-6 w-full relative">
+        <nav className="flex items-center justify-between px-6 lg:px-6 xl:px-12 py-6 w-full relative">
           {/* Logo Area */}
           <div className="flex items-center gap-4">
             <Link href="/" className="flex items-center">
@@ -67,12 +69,23 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Links */}
-          <div className="hidden lg:flex items-center space-x-10 text-[15px] font-sans text-[#131C2B]">
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="hover:opacity-70 transition-opacity">
-                {link.label}
-              </Link>
-            ))}
+          <div className="hidden lg:flex items-center lg:space-x-1.5 xl:space-x-4 lg:text-[15px] xl:text-[17px] font-sans text-[#131C2B]">
+            {navLinks.map((link) => {
+              const isActive = link.href === '/' 
+                ? pathname === '/' 
+                : link.href === '/#industries' 
+                  ? false 
+                  : pathname === link.href || pathname.startsWith(link.href + '/');
+              return (
+                <Link 
+                  key={link.href} 
+                  href={link.href} 
+                  className={`nav-link-btn lg:px-2.5 xl:px-[0.95rem] whitespace-nowrap ${isActive ? 'nav-link-btn-active' : ''}`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Mobile Burger Button */}
@@ -81,7 +94,7 @@ export default function Navbar() {
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           >
-            {menuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+            {menuOpen ? <X className="w-[30px] h-[30px]" /> : <Menu className="w-[30px] h-[30px]" />}
           </button>
         </nav>
       </div>
@@ -111,29 +124,40 @@ export default function Navbar() {
                 className="p-1 text-[#131C2B] hover:opacity-70 transition-opacity"
                 aria-label="Close menu"
               >
-                <X className="w-6 h-6" />
+                <X className="w-[26px] h-[26px]" />
               </button>
             </div>
 
             {/* Links */}
             <nav className="flex flex-col gap-1 px-4 py-6">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="px-4 py-3 rounded-md text-[16px] font-medium text-[#131C2B] hover:bg-[#CBB283]/30 transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = link.href === '/' 
+                  ? pathname === '/' 
+                  : link.href === '/#industries' 
+                    ? false 
+                    : pathname === link.href || pathname.startsWith(link.href + '/');
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    className={`px-4 py-3 rounded-md text-[18px] font-medium transition-all ${
+                      isActive 
+                        ? 'bg-[#A17755] text-[#FAF1E1] hover:bg-[#A17755]' 
+                        : 'text-[#131C2B] hover:bg-[#CBB283]/30'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </nav>
 
             <div className="mt-auto px-8 pb-8">
               <Link
                 href="/contact#connect"
                 onClick={() => setMenuOpen(false)}
-                className="btn-premium block w-full text-center py-3 text-[15px] rounded-md cursor-pointer"
+                className="btn-premium block w-full text-center py-3 text-[17px] rounded-md cursor-pointer"
               >
                 Book Consultation
               </Link>

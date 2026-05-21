@@ -23,7 +23,7 @@ export default function AboutStats() {
         <div className="flex-1 lg:max-w-[45%] w-full self-stretch">
           <div className="relative w-full h-full min-h-[300px]">
             <Image
-              src="/about-who-we-are.png"
+              src="/about-who-we-are.webp"
               alt="Who We Are"
               fill
               className="object-cover object-center"
