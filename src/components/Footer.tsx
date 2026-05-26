@@ -43,8 +43,8 @@ export default function Footer() {
                   <Link href="/practice-areas" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Practice Areas</Link>
                   <Link href="/#industries" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Industries</Link>
                   <Link href="/insights" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Insights</Link>
-                  <Link href="/about" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">About</Link>
-                  <Link href="/contact" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Contact</Link>
+                  <Link href="/about" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">About Us</Link>
+                  <Link href="/contact" className="text-[#131C2B] text-[13px] sm:text-[15px] hover:text-[#A17755] transition-colors">Contact Us</Link>
                 </div>
               </div>
 

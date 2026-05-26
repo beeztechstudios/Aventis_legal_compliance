@@ -162,7 +162,7 @@ export default function TermsOfServicePage() {
                 <strong>Phone:</strong> <a href="tel:+919818162862" className="hover:text-[#A17755] transition-colors">+91 9818162862</a>
               </p>
               <p>
-                <strong>Email:</strong> <a href="mailto:mananoberoi@aventislegal.in" className="hover:text-[#A17755] transition-colors">mananoberoi@aventislegal.in</a>
+                <strong>Email:</strong> <a href="mailto:ishawadhwa@aventislegal.in" className="hover:text-[#A17755] transition-colors">ishawadhwa@aventislegal.in</a>
               </p>
               
               <div className="mt-8 pt-6 border-t border-[#131C2B]/10">
