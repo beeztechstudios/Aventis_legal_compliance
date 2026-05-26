@@ -68,7 +68,7 @@ export default async function InsightsPage() {
             Labour law updates, compliance guidance, and practical business insights designed to help organizations stay informed and compliant.
           </p>
           <Link href="/contact#connect" className="btn-premium px-8 py-3.5 rounded-md text-[15px] shadow-sm inline-flex items-center justify-center">
-            Book A Consultation
+            Book a Consultation
           </Link>
         </div>
       </section>
