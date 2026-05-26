@@ -38,7 +38,7 @@ export default function AboutWhyChooseUs() {
             </p>
           </div>
           <Link href="/contact#connect" className="btn-premium shadow-sm text-[14px] px-6 py-2.5 rounded-md inline-flex items-center justify-center">
-            Book Consultation
+            Book A Consultation
           </Link>
         </div>
 

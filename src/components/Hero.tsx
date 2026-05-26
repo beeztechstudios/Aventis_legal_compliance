@@ -86,14 +86,14 @@ export default function Hero() {
           {/* Right Side: Description and CTA */}
           <div className="flex-1 xl:max-w-[35%] flex flex-col items-start pt-0 xl:pt-0">
             <p className="section-description heading-to-desc mb-4">
-              Labour law, regulatory compliance, and HR advisory solutions
-              designed for modern, growing businesses across India.
+              Labour and employment law compliances, Advisory and HR solutions
+              designed for modern growing business across India.
             </p>
             <Link
               href="/contact#connect"
               className="btn-premium shadow-sm text-[15px] px-8 py-3.5 rounded-md cursor-pointer inline-flex items-center justify-center"
             >
-              Book Consultation
+              Book A Consultation
             </Link>
             <p className="text-[#131C2B]/60 text-xs md:text-[15px] mt-6 font-sans">
               Located in <span className="font-semibold text-[#131C2B]">India.</span>

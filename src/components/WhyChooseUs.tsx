@@ -123,7 +123,7 @@ export default function WhyChooseUs() {
           href="/contact#connect"
           className="btn-premium desc-to-btn md:mt-0 shadow-sm text-[14px] px-6 py-2.5 cursor-pointer inline-flex items-center justify-center rounded-md"
         >
-          Book Consultation
+          Book A Consultation
         </Link>
       </div>
 

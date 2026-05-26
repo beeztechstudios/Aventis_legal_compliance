@@ -8,11 +8,11 @@ import { Menu, X, BookOpen } from 'lucide-react';
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
+  { href: '/about', label: 'About Us' },
   { href: '/practice-areas', label: 'Practice Areas' },
   { href: '/#industries', label: 'Industries' },
   { href: '/insights', label: 'Insights' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/contact', label: 'Contact Us' },
 ];
 
 export default function Navbar() {
@@ -46,12 +46,12 @@ export default function Navbar() {
         }`}
       >
         {/* Top Banner — hidden on mobile & tablet */}
-        <div className="hidden lg:flex w-full bg-[#CBB283] py-2 items-center justify-center">
+        {/* <div className="hidden lg:flex w-full bg-[#CBB283] py-2 items-center justify-center">
           <p className="text-[#131C2B] text-[13px] md:text-sm font-medium flex items-center gap-2 text-center px-4">
             <BookOpen className="w-4 h-4 opacity-70 shrink-0" />
             The Importance of Timely Compliance in Labour Law &amp; Regulatory Obligations
           </p>
-        </div>
+        </div> */}
 
         {/* Main Navbar */}
         <nav className="flex items-center justify-between px-6 lg:px-6 xl:px-12 py-6 w-full relative">
@@ -159,7 +159,7 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
                 className="btn-premium block w-full text-center py-3 text-[17px] rounded-md cursor-pointer"
               >
-                Book Consultation
+                Book A Consultation
               </Link>
             </div>
           </div>

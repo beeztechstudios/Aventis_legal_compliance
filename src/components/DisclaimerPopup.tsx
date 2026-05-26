@@ -86,6 +86,12 @@ export function DisclaimerPopup() {
               circumstances.
             </p>
             <p>
+              As per the rule of Bar Council of India, there has been no
+              solicitation, invitation or inducement of any sort whatsoever
+              from the firm or any of its members to create a Lawyer-Client
+              relationship through this website.
+            </p>
+            <p>
               By clicking <strong>&ldquo;I Agree&rdquo;</strong>, you
               acknowledge that you have read and understood this disclaimer and
               agree to proceed on these terms.

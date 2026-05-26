@@ -105,7 +105,7 @@ export default async function PracticeAreaDetailPage({
                 href="/contact#connect" 
                 className="btn-premium px-8 py-3.5 rounded-md text-[15px] shadow-sm w-fit inline-flex items-center justify-center"
               >
-                discuss your requirements
+                Discuss Your Requirements
               </Link>
             </div>
 

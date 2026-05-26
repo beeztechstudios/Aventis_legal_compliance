@@ -93,7 +93,7 @@ export default function ContactPage() {
             onClick={() => setShowCalendly(true)}
             className="btn-premium shadow-sm text-[15px] px-8 py-3.5 rounded-md"
           >
-            Book Consultation
+            Book A Consultation
           </button>
           <p className="text-[#131C2B]/60 text-xs md:text-[15px] mt-6 font-sans">
             Located in <span className="font-semibold text-[#131C2B]">India.</span>
@@ -139,8 +139,8 @@ export default function ContactPage() {
                   <Image src="/mail-icon.svg" alt="Email" width={20} height={20} className="w-5 h-5" />
                 </div>
                 <div>
-                  <a href="mailto:mananoberoi@aventislegal.in" className="text-[#131C2B] text-[16px] md:text-[17px] hover:text-[#A17755] transition-colors">
-                    mananoberoi@aventislegal.in
+                  <a href="mailto:ishawadhwa@aventislegal.in" className="text-[#131C2B] text-[16px] md:text-[17px] hover:text-[#A17755] transition-colors">
+                    ishawadhwa@aventislegal.in
                   </a>
                 </div>
               </div>
@@ -175,7 +175,7 @@ export default function ContactPage() {
           {/* Right Column: Form */}
           <div className="flex-1 lg:max-w-[50%] bg-[#FCFCFC] border border-white/60 rounded-2xl p-8 md:p-12 shadow-sm">
             <h3 className="heading-section heading-to-desc text-[20px] md:text-[32px] lg:text-[40px] whitespace-nowrap overflow-hidden">
-              let&apos;s discuss your requirements
+              Let&apos;s Discuss Your Requirements
             </h3>
             <div className="w-full h-px bg-[#131C2B]/10 mb-10"></div>
 

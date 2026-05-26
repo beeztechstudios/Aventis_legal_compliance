@@ -123,7 +123,7 @@ export default async function PracticeAreasPage() {
             </p>
             <div>
               <Link href="/contact#connect" className="btn-premium px-8 py-3.5 rounded-md text-[15px] shadow-sm inline-flex items-center justify-center">
-                Book Consultation
+                Book A Consultation
               </Link>
             </div>
           </div>
