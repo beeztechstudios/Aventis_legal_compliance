@@ -159,7 +159,7 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
                 className="btn-premium block w-full text-center py-3 text-[17px] rounded-md cursor-pointer"
               >
-                Book A Consultation
+                Book a Consultation
               </Link>
             </div>
           </div>

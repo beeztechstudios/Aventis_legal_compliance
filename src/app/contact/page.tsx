@@ -93,7 +93,7 @@ export default function ContactPage() {
             onClick={() => setShowCalendly(true)}
             className="btn-premium shadow-sm text-[15px] px-8 py-3.5 rounded-md"
           >
-            Book A Consultation
+            Book a Consultation
           </button>
           <p className="text-[#131C2B]/60 text-xs md:text-[15px] mt-6 font-sans">
             Located in <span className="font-semibold text-[#131C2B]">India.</span>
