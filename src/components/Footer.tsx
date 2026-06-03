@@ -33,7 +33,7 @@ export default function Footer() {
             <div className="flex flex-col items-start w-full lg:w-fit lg:pr-14 xl:pr-[115px]">
 
             {/* Links Grid: PAGES | SERVICES | UTILITY */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:flex lg:flex-row justify-start gap-x-10 sm:gap-x-16 md:gap-x-20 lg:gap-x-14 xl:gap-x-[115px] gap-y-8 mb-10 md:mb-14 w-full">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:flex lg:flex-row justify-start gap-x-10 sm:gap-x-16 md:gap-x-20 lg:gap-x-14 xl:gap-x-[115px] gap-y-8 mb-10 md:mb-10 w-full">
 
               {/* PAGES Column */}
               <div className="flex flex-col gap-4 text-left">
@@ -72,15 +72,15 @@ export default function Footer() {
 
             {/* Social Icons — bottom-left of links area */}
             <div className="flex gap-5 sm:gap-7 items-center justify-start w-full lg:w-auto">
-              <Link href="#" className="text-[#131C2B] hover:text-[#A17755] transition-colors">
+              {/* <Link href="#" className="text-[#131C2B] hover:text-[#A17755] transition-colors">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" /></svg>
-              </Link>
+              </Link> */}
               <Link href="https://www.linkedin.com/company/aventis-legal-solutions" target="_blank" className="text-[#131C2B] hover:text-[#A17755] transition-colors">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" /></svg>
               </Link>
-              <Link href="#" className="text-[#131C2B] hover:text-[#A17755] transition-colors">
+              {/* <Link href="#" className="text-[#131C2B] hover:text-[#A17755] transition-colors">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-              </Link>
+              </Link> */}
             </div>
 
             </div>
