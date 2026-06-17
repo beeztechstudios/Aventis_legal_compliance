@@ -18,7 +18,7 @@ async function getBlogPost(slug: string) {
   const query = `
     *[_type == "blogPost" && slug.current == $slug][0]{
       title, excerpt, content, featuredImage,
-      publishedAt, "categoryName": category->name, seo, readTime
+      publishedAt, "categoryName": category->name, seo, readTime, downloadUrl
     }
   `;
   try {
@@ -143,12 +143,29 @@ export default async function BlogDetailsPage({
           {/* Left: Content */}
           <div className="flex-1 lg:w-[65%]">
             <SanityContentRenderer content={post.content} />
+
+            {post.downloadUrl && (
+              <div className="mt-10 border border-[#A17755]/30 bg-[#A17755]/5 rounded-md p-6 md:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+                <div className="flex flex-col gap-1">
+                  <span className="font-serif text-[18px] md:text-[20px] text-[#131C2B] leading-snug">Want the full document?</span>
+                  <span className="font-sans text-[14px] text-[#131C2B]/60">For more information, you can download the complete order / document.</span>
+                </div>
+                <a
+                  href={post.downloadUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 inline-flex items-center gap-2 bg-[#A17755] hover:bg-[#8F6F4E] text-white px-6 py-3 rounded-md font-sans font-medium text-[14px] transition-colors"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Download Document
+                </a>
+              </div>
+            )}
           </div>
 
           {/* Right: Sidebar */}
           <aside className="w-full lg:w-[30%] lg:max-w-[340px] shrink-0 relative">
             <div className="sticky top-24 flex flex-col gap-4">
-
 
               {/* Related Blogs Card */}
               <div className="w-full bg-white rounded-sm shadow-sm p-6 md:p-8 flex flex-col">
