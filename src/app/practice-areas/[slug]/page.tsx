@@ -11,6 +11,8 @@ import Footer from "@/components/Footer";
 import { Metadata } from "next";
 import PageAnimate from "@/components/PageAnimate";
 
+export const revalidate = 60;
+
 async function getPracticeArea(slug: string) {
   const query = `
     *[_type == "practiceArea" && slug.current == $slug][0]{
