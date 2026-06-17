@@ -1,75 +1,51 @@
-"use client";
+import { client } from "@/sanity/client";
+import PracticeAreasClient from "./PracticeAreasClient";
 
-import { useRef } from "react";
-import { ChevronLeft, ChevronRight, CornerDownRight } from "lucide-react";
+export const revalidate = 60;
 
-const areas = [
-  { title: "Labour Law Compliance", desc: "End-to-end support under central and state labour laws." },
-  { title: "Regulatory & Compliance Services", desc: "Registrations, filings, audits, and statutory compliance management." },
-  { title: "Payroll Compliance (PF / ESI)", desc: "Accurate and timely handling of PF, ESI, and related obligations." },
-  { title: "Labour Department Liaison", desc: "Inspection handling, notices, and coordination with authorities." },
-  { title: "POSH Compliance", desc: "Policy drafting, IC setup, training, and compliance support." },
-  { title: "HR Governance", desc: "HR policies, documentation, and compliance frameworks." }
+async function getPracticeAreas() {
+  const query = `*[_type == "practiceArea"] | order(_createdAt asc) {
+    title,
+    "slug": slug.current,
+    excerpt,
+    iconName
+  }`;
+
+  try {
+    const areas = await client.fetch(query);
+    return areas;
+  } catch (error) {
+    console.error("Failed to fetch practice areas:", error);
+    return [];
+  }
+}
+
+const fallbackAreas = [
+  {
+    slug: "labour-law-advisory-compliance",
+    title: "Labour Law Advisory & Compliance",
+    excerpt: "Comprehensive advisory and compliance support under central and state labour laws to help businesses manage workforce regulations efficiently.",
+  },
+  {
+    slug: "regulatory-compliance-governance",
+    title: "Regulatory Compliance & Governance (GRC)",
+    excerpt: "Structured governance and compliance solutions focused on improving regulatory alignment and reducing operational risks.",
+  },
+  {
+    slug: "payroll-statutory-compliance",
+    title: "Payroll & Statutory Compliances",
+    excerpt: "Support for PF, ESI, PT, LWF, and related statutory obligations with accurate and timely compliance management.",
+  },
+  {
+    slug: "labour-law-audits-due-diligence",
+    title: "Labour Law Audits & Due Diligence",
+    excerpt: "Detailed compliance audits and due diligence assessments to identify gaps, risks, and regulatory concerns.",
+  },
 ];
 
-export default function PracticeAreas() {
-  const scrollRef = useRef<HTMLDivElement>(null);
+export default async function PracticeAreas() {
+  const sanityAreas = await getPracticeAreas();
+  const areas = sanityAreas?.length ? sanityAreas : fallbackAreas;
 
-  const scroll = (direction: 'left' | 'right') => {
-    if (scrollRef.current) {
-      const scrollAmount = direction === 'left' ? -300 : 300;
-      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  };
-
-  return (
-    <section id="services" className="w-full pb-12 md:pb-24">
-      {/* Top Divider and Controls */}
-      <div className="px-6 md:px-12 w-full mb-6 md:mb-12 flex items-center gap-4">
-        <div className="text-[11px] font-sans font-semibold tracking-wide uppercase text-[#131C2B] whitespace-nowrap">
-          Practice Areas
-        </div>
-        <div className="flex-1 h-[1px] bg-[#131C2B]/20"></div>
-        <div className="flex gap-2">
-          <button onClick={() => scroll('left')} className="w-8 h-8 flex items-center justify-center bg-[#A17755] text-white hover:bg-[#8F6F4E] transition-colors rounded-sm">
-            <ChevronLeft className="w-4 h-4" />
-          </button>
-          <button onClick={() => scroll('right')} className="w-8 h-8 flex items-center justify-center bg-[#A17755] text-white hover:bg-[#8F6F4E] transition-colors rounded-sm">
-            <ChevronRight className="w-4 h-4" />
-          </button>
-        </div>
-      </div>
-
-      {/* Cards Carousel */}
-      <div className="px-6 md:px-12 w-full">
-        <div
-          ref={scrollRef}
-          className="flex gap-8 lg:gap-16 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-8"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-        >
-          {areas.map((area, idx) => (
-            <div
-              key={idx}
-              className="min-w-[240px] md:min-w-[280px] snap-start flex flex-col"
-            >
-              <h3 className="heading-sub mb-2 md:mb-4">
-                {area.title.split(' ').map((word, i) => (
-                  <span key={i}>{word} </span>
-                ))}
-              </h3>
-              <p className="text-[#131C2B]/70 text-[13px] md:text-sm leading-relaxed mb-4 md:mb-6 font-sans">
-                {area.desc}
-              </p>
-              <div className="mt-auto">
-                <button className="text-[#A17755] text-xs font-sans font-medium hover:text-[#131C2B] transition-colors flex items-center gap-2 group">
-                  <CornerDownRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                  Learn more
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  return <PracticeAreasClient areas={areas} />;
 }

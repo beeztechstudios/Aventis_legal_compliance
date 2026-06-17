@@ -1,12 +1,18 @@
+import type { Metadata } from 'next';
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from "@/components/Navbar";
 import FAQ from "@/components/FAQ";
-import CallToAction from "@/components/CallToAction";
+// import CallToAction from "@/components/CallToAction";
+import AboutCTA from "@/components/about/AboutCTA";
 import Footer from "@/components/Footer";
 import { client } from '@/sanity/client';
 import { urlForImage } from '@/sanity/image';
+import { insightsMetadata } from '@/lib/siteMeta';
+import PageAnimate from "@/components/PageAnimate";
+
+export const metadata: Metadata = insightsMetadata;
 
 export const revalidate = 60;
 
@@ -44,22 +50,26 @@ export default async function InsightsPage() {
   const featuredPost = sanityPosts?.[0];
   const remainingPosts = sanityPosts?.slice(1) || [];
 
+  const featuredImgUrl = featuredPost?.featuredImage ? urlForImage(featuredPost.featuredImage)?.url() : null;
+  const featuredImg = featuredImgUrl || "/insights-blog-background.webp";
+
   return (
     <main className="flex flex-col min-h-screen bg-[#FAF1E1]">
       <Navbar />
 
-      {/* Header Section */}
-      <section className="px-6 md:px-12 pt-12 md:pt-16 pb-0 w-full flex flex-col lg:flex-row justify-between items-start lg:items-center gap-2 md:gap-12 lg:gap-24">
-        <h1 className="heading-hero !text-[30px] md:!text-[48px] lg:!text-[64px] flex-1 lg:max-w-[65%]">
+      <PageAnimate>
+        {/* Header Section */}
+        <section className="hero-content px-6 md:px-12 pt-10 md:pt-16 pb-0 w-full flex flex-col xl:flex-row justify-between items-start xl:items-center gap-2 md:gap-6 xl:gap-24">
+        <h1 className="heading-hero flex-1 xl:max-w-[65%]">
           Resources & Insights
         </h1>
-        <div className="flex flex-col items-start gap-4 flex-1 lg:max-w-[35%] pt-4 lg:pt-0">
+        <div className="flex flex-col items-start gap-4 flex-1 xl:max-w-[35%] pt-4 xl:pt-0">
           <p className="section-description mb-2 text-left">
             Labour law updates, compliance guidance, and practical business insights designed to help organizations stay informed and compliant.
           </p>
-          <button className="bg-[#A17755] text-white px-8 py-3.5 rounded-md font-sans font-medium text-[15px] hover:bg-[#8F6F4E] transition-colors shadow-sm">
-            Book Consultation
-          </button>
+          <Link href="/contact#connect" className="btn-premium px-8 py-3.5 rounded-md text-[15px] shadow-sm inline-flex items-center justify-center">
+            Book a Consultation
+          </Link>
         </div>
       </section>
 
@@ -70,10 +80,10 @@ export default async function InsightsPage() {
           <div className="flex lg:hidden flex-col w-full bg-[#131C2B] overflow-hidden shadow-xl rounded-xl">
             <div className="relative w-full aspect-[4/3] bg-white/5">
               <Image
-                src={featuredPost.featuredImage ? urlForImage(featuredPost.featuredImage)?.url() || "/insights-image.png" : "/insights-image.png"} 
+                src={featuredImg}
                 alt={featuredPost.title}
                 fill
-                className="object-cover object-top" 
+                className="object-cover object-top"
               />
             </div>
             <div className="p-8 flex flex-col items-start">
@@ -102,7 +112,7 @@ export default async function InsightsPage() {
               <div className="border border-[#A1A4AA] text-[#FAF1E1] text-[0.75cqw] rounded-[0.3cqw] px-[1.2cqw] py-[0.5cqw] mb-[1.8cqw] font-sans">
                 Featured Article
               </div>
-              <h2 className="font-serif text-[3.8cqw] leading-[1.1] tracking-tight text-white mb-[1.2cqw]">
+              <h2 className="font-serif text-[35px] xl:text-[48px] leading-[1.1] tracking-tight text-white mb-[1.2cqw]">
                 {featuredPost.title}
               </h2>
               <p className="text-white/90 font-sans text-[1.05cqw] leading-[1.6] mb-[2.5cqw] w-[85%] text-justify line-clamp-3">
@@ -118,12 +128,12 @@ export default async function InsightsPage() {
             <div className="absolute right-[11%] top-[50%] -translate-y-1/2 w-[46%] aspect-square z-10 pointer-events-none opacity-60">
               <Image src="/insights-vector.svg" alt="Decorative rings" fill className="object-contain" />
             </div>
-            <div className="absolute right-[4%] top-[6%] w-[40%] h-[88%] rounded-[0.8cqw] overflow-hidden shadow-2xl z-30 bg-white/5">
+            <div className="hero-image absolute right-[4%] top-[6%] w-[40%] h-[88%] rounded-[0.8cqw] overflow-hidden shadow-2xl z-30 bg-white/5">
               <Image
-                src={featuredPost.featuredImage ? urlForImage(featuredPost.featuredImage)?.url() || "/insights-image.png" : "/insights-image.png"} 
+                src={featuredImg}
                 alt={featuredPost.title}
                 fill
-                className="object-cover" 
+                className="object-cover"
                 priority
               />
             </div>
@@ -134,54 +144,48 @@ export default async function InsightsPage() {
       {/* Blog Grid */}
       <section className="px-6 md:px-12 w-full mb-24 md:mb-32">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-x-10 md:gap-y-16">
-          {remainingPosts.map((post: any, idx: number) => (
-            <Link href={`/insights/${post.slug}`} key={post._id} className="group flex flex-col cursor-pointer">
-              <div className="w-full aspect-[4/3] relative rounded-xl overflow-hidden mb-6 bg-[#131C2B]/5">
-                <Image
-                  src={post.featuredImage ? urlForImage(post.featuredImage)?.url() || '/insights-image.png' : '/insights-image.png'}
-                  alt={post.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
-                />
-              </div>
+          {remainingPosts.map((post: any, idx: number) => {
+            const postImgUrl = post.featuredImage ? urlForImage(post.featuredImage)?.url() : null;
+            const postImg = postImgUrl || "/insights-blog-background.webp";
 
-              <div className="border border-[#131C2B]/10 text-[#131C2B]/70 text-[12px] uppercase px-3 py-1 rounded-md w-fit mb-4 font-sans font-medium">
-                {post.categoryName || 'Compliance'}
-              </div>
-
-              <h3 className="heading-card text-[#131C2B] leading-[1.3] mb-3 group-hover:text-[#A17755] transition-colors line-clamp-2 h-[3.2em]">
-                {post.title}
-              </h3>
-
-              <p className="text-[#131C2B]/70 font-sans text-[14px] md:text-[15px] leading-relaxed mb-6 line-clamp-2">
-                {post.excerpt}
-              </p>
-
-              <div className="mt-auto pt-4 border-t border-[#131C2B]/10 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full overflow-hidden relative bg-[#131C2B]/10">
+            return (
+              <Link href={`/insights/${post.slug}`} key={post._id} className="group flex flex-col cursor-pointer">
+                <div className="w-full aspect-[4/3] relative rounded-xl overflow-hidden mb-6 bg-[#131C2B]/5">
                   <Image
-                    src={idx % 2 === 0 ? '/Isha-Wadhwa.png' : '/Manan-Oberoi.png'}
-                    alt="Author"
+                    src={postImg}
+                    alt={post.title}
                     fill
-                    className="object-cover"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
                   />
                 </div>
-                <div className="flex flex-col">
-                  <span className="font-sans font-medium text-[13px] text-[#131C2B]">
-                    {idx % 2 === 0 ? 'Isha Wadhwa' : 'Manan Oberoi'}
-                  </span>
+
+                <div className="border border-[#131C2B]/10 text-[#131C2B]/70 text-[12px] uppercase px-3 py-1 rounded-md w-fit mb-4 font-sans font-medium">
+                  {post.categoryName || 'Compliance'}
+                </div>
+
+                <h3 className="heading-card text-[#131C2B] leading-[1.3] mb-3 group-hover:text-[#A17755] transition-colors line-clamp-2">
+                  {post.title}
+                </h3>
+
+                <p className="text-[#131C2B]/70 font-sans text-[14px] md:text-[15px] leading-relaxed mb-6 line-clamp-2">
+                  {post.excerpt}
+                </p>
+
+                <div className="mt-auto border-t border-[#131C2B]/10 flex items-center gap-3">
                   <span className="font-sans text-[12px] text-[#131C2B]/60">
                     {formatDate(post.publishedAt)} · {post.readTime || '5 min read'}
                   </span>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
         </div>
       </section>
 
-      <FAQ />
-      <CallToAction />
+        <FAQ />
+        {/* <CallToAction /> */}
+        <AboutCTA />
+      </PageAnimate>
       <Footer />
     </main>
   );

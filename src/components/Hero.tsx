@@ -1,10 +1,11 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useRef, useState, useCallback } from 'react';
 
 const QUOTE =
-  'With a focus on labour law compliance, we support businesses across India with practical solutions for governance and regulatory needs.';
+  '"With a focus on labour law compliance, we support businesses across India with practical solutions for governance and regulatory needs."';
 
 function TypewriterQuote() {
   const words = QUOTE.split(' ');
@@ -18,16 +19,21 @@ function TypewriterQuote() {
     const rect = el.getBoundingClientRect();
     const windowH = window.innerHeight;
 
-    // Section not yet visible — keep all words dim
-    if (rect.top >= windowH) {
+    // Reveal starts when the section is at least 50% scrolled into the viewport
+    const triggerDistance = rect.height * 0.5;
+
+    // If we haven't reached the 50% point yet, keep all words dim
+    if (windowH - rect.top < triggerDistance) {
       setVisibleCount(0);
       return;
     }
 
-    // Reveal starts the moment section enters the viewport.
-    // All words revealed by the time user scrolls ~60% through the section.
-    const distanceIn = windowH - rect.top;                  // px the section has entered the viewport
-    const revealOver = rect.height * 0.6 + windowH * 0.2;  // total px to scroll to fully reveal
+    // Distance scrolled past the 50% trigger point
+    const distanceIn = (windowH - rect.top) - triggerDistance;
+
+    // Decreased revealOver slightly to speed up the animation. 
+    // This requires less scrolling to reveal the entire quote (~5-6 words per scroll).
+    const revealOver = windowH * 0.8;
 
     const progress = Math.max(0, Math.min(1, distanceIn / revealOver));
     setVisibleCount(Math.round(progress * words.length));
@@ -43,7 +49,7 @@ function TypewriterQuote() {
     <section ref={sectionRef} className="w-full px-6 md:px-12 py-12 md:py-24 bg-[#FAF1E1]">
       <div className="max-w-[1000px] mx-auto text-center">
         <p
-          className="font-sans font-normal leading-[1.6] text-center tracking-tight"
+          className="font-serif font-medium leading-[1.6] text-center tracking-tight"
           style={{ fontSize: 'clamp(1.3rem, 3.5vw, 3rem)' }}
         >
           {words.map((word, i) => (
@@ -67,28 +73,29 @@ function TypewriterQuote() {
 export default function Hero() {
   return (
     <div className="w-full flex flex-col">
-      <section className="px-6 md:px-12 pt-12 md:pt-24 pb-0 md:pb-12 w-full overflow-hidden">
+      <section className="px-6 md:px-12 pt-10 md:pt-16 pb-0 md:pb-12 w-full overflow-hidden">
         {/* Top Text Section (Side by Side) */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-2 md:gap-12 lg:gap-24 mb-8">
-
+        <div className="hero-content flex flex-col xl:flex-row xl:items-center justify-between gap-2 md:gap-4 xl:gap-24 mb-8">
           {/* Left Side: Big Heading */}
-          <div className="flex-1 lg:max-w-[65%]">
-            <h1 className="heading-hero !text-[28px] md:!text-[48px] lg:!text-[64px] max-w-full mb-2">
-              <span className="block whitespace-nowrap">Simplifying Compliance.</span>
-              <span className="block whitespace-nowrap">Strengthening Governance.</span>
+          <div className="flex-1 xl:max-w-[65%]">
+            <h1 className="heading-hero max-w-full mb-2">
+              <span className="block md:whitespace-nowrap">Simplifying Compliance.</span>
+              <span className="block md:whitespace-nowrap">Strengthening Governance.</span>
             </h1>
           </div>
-
           {/* Right Side: Description and CTA */}
-          <div className="flex-1 lg:max-w-[35%] flex flex-col items-start pt-0 lg:pt-0">
+          <div className="flex-1 xl:max-w-[35%] flex flex-col items-start pt-0 xl:pt-0">
             <p className="section-description heading-to-desc mb-4">
-              Labour law, regulatory compliance, and HR advisory solutions
-              designed for modern, growing businesses across India.
+              Labour and employment law compliances, Advisory and HR solutions
+              designed for modern growing business across India.
             </p>
-            <button className="btn-primary shadow-sm text-[15px] px-8 py-3.5 bg-[#A17755] hover:bg-[#8F6F4E] rounded-md">
-              Book Consultation
-            </button>
-            <p className="text-[#131C2B]/60 text-xs mt-6 font-sans">
+            <Link
+              href="/contact#connect"
+              className="btn-premium shadow-sm text-[15px] px-8 py-3.5 rounded-md cursor-pointer inline-flex items-center justify-center"
+            >
+              Book a Consultation
+            </Link>
+            <p className="text-[#131C2B]/60 text-xs md:text-[15px] mt-6 font-sans">
               Located in <span className="font-semibold text-[#131C2B]">India.</span>
             </p>
           </div>
@@ -96,9 +103,9 @@ export default function Hero() {
       </section>
 
       {/* Full Width & Height Visual — natural aspect ratio, no cropping */}
-      <div className="w-full">
+      <div className="w-full hero-image overflow-hidden">
         <Image
-          src="/hero-section.png"
+          src="/hero-section.webp"
           alt="Business meeting"
           width={1920}
           height={1080}

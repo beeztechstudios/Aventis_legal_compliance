@@ -1,6 +1,11 @@
 @keyframes slideIn {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
 }
 
 @import "tailwindcss";
@@ -23,6 +28,10 @@
   --foreground: #131C2B;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @layer base {
   body {
     background-color: var(--background);
@@ -39,6 +48,16 @@
     @apply font-serif tracking-tight;
     color: var(--foreground);
   }
+
+  button,
+  a,
+  .cursor-pointer {
+    cursor: pointer !important;
+  }
+
+  #connect {
+    scroll-margin-top: 100px;
+  }
 }
 
 /* ─────────────────────────────────────────────
@@ -51,7 +70,8 @@
   /* Hero h1 — homepage only */
   .heading-hero {
     @apply font-serif font-normal leading-[1.12] tracking-tight text-[#131C2B];
-    font-size: 28px;
+    font-size: 26px;
+    /* Phone */
     max-width: 100%;
     word-break: keep-all;
   }
@@ -59,12 +79,14 @@
   @media (min-width: 768px) {
     .heading-hero {
       font-size: 48px;
+      /* iPad Air */
     }
   }
 
   @media (min-width: 1024px) {
     .heading-hero {
-      font-size: 64px;
+      font-size: 56px;
+      /* iPad Pro & Desktop */
     }
   }
 
@@ -76,7 +98,7 @@
 
   @media (min-width: 768px) {
     .heading-section {
-      font-size: 3.5rem;
+      font-size: 40px;
     }
   }
 
@@ -155,5 +177,165 @@
 
   .btn-outline {
     @apply px-6 py-2.5 border border-black rounded-lg font-medium hover:bg-black hover:text-white transition-colors w-fit;
+  }
+
+  /* Premium Skew Button Hover Animations */
+  .btn-premium {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background-color: #A17755;
+    color: #FAF1E1;
+    transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .btn-premium::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #131C2B;
+    /* Deep elegant dark navy/slate hover fill */
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+  }
+
+  .btn-premium:hover::before {
+    transform: scaleX(1);
+  }
+
+  .btn-premium:hover {
+    color: #FAF1E1;
+    border-color: #131C2B;
+  }
+
+  .btn-premium-light {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background-color: #E3D0AD;
+    color: #131C2B;
+    transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .btn-premium-light::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FAF1E1;
+    /* Light background fill on hover */
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+  }
+
+  .btn-premium-light:hover::before {
+    transform: scaleX(1);
+  }
+
+  .btn-premium-light:hover {
+    color: #A17755;
+    border-color: #FAF1E1;
+  }
+
+  .btn-premium-outline {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background-color: transparent;
+    color: #E3D0AD;
+    border: 1px solid #3C4045;
+    transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .btn-premium-outline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Subtle glowing overlay sweep */
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+  }
+
+  .btn-premium-outline:hover::before {
+    transform: scaleX(1);
+  }
+
+  .btn-premium-outline:hover {
+    color: #FAF1E1;
+    border-color: #E3D0AD;
+  }
+
+  /* Premium Nav Link Button */
+  .nav-link-btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    padding: 0.4rem 0.95rem;
+    border-radius: 0.25rem;
+    transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  .nav-link-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #A17755; /* Warm gold/bronze hover background */
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+  }
+
+  .nav-link-btn:hover::before {
+    transform: scaleX(1);
+  }
+
+  .nav-link-btn:hover {
+    color: #FAF1E1 !important; /* Beige text on hover */
+  }
+
+  /* Active State (Highlighted Box when page is open) */
+  .nav-link-btn-active {
+    background-color: #A17755; /* Dark navy fill */
+    color: #FAF1E1 !important; /* Beige text */
+    border-color: #A17755;
   }
 }
